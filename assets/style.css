@@ -1,8 +1,11 @@
 :root {
   --bg-color: #f3f4f6;
-  --gray-200 : #EAF4F6;
-  --red : #FF2626;
-  --pink : #FFE6E6;
+  --gray-200: #eaf4f6;
+  --red: #ff2626;
+  --pink: #ffe6e6;
+  --dark-pink: #ca0453;
+  --gray-900: #1b312f;
+  --gray-800: #37364c;
 }
 
 ::-webkit-scrollbar {
@@ -161,8 +164,8 @@ header {
 }
 
 .logo {
-  width: 210px;
-  height: 210px;
+  width: 180px;
+  height: 180px;
   display: flex;
   margin-top: 10px;
   align-items: center;
@@ -183,7 +186,7 @@ header {
   display: none;
 }
 
-.hero-container{
+.hero-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -191,7 +194,7 @@ header {
   margin-top: 55px;
 }
 
-.btn-content-hero{
+.btn-content-hero {
   background-color: var(--gray-200);
   padding: 15px;
   border-radius: 20px;
@@ -202,13 +205,13 @@ header {
   color: var(--red);
 }
 
-.main-left-content-hero h1{
+.main-left-content-hero h1 {
   font-family: "Poppins", sans-serif;
   font-size: 60px;
   line-height: 30px;
 }
 
-.main-left-content-hero p{
+.main-left-content-hero p {
   font-family: "Poppins", sans-serif;
   font-size: 12x;
   max-width: 650px;
@@ -219,7 +222,7 @@ header {
   color: var(--red);
 }
 
-.right-content-hero{
+.right-content-hero {
   width: 500px;
 }
 .right-content-hero img {
@@ -244,7 +247,7 @@ header {
   position: relative;
   justify-content: center;
   gap: 5px;
-  border: 1px solid #E5E7EB;
+  border: 1px solid #e5e7eb;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-family: "Poppins", sans-serif;
   font-weight: 600;
@@ -303,7 +306,6 @@ header {
   border-color: var(--red);
 }
 
-
 .button-action-hero button:hover:before {
   transform: translateX(0);
 }
@@ -317,7 +319,7 @@ header {
   transform: translateY(1px);
 }
 
-.bottom-content-hero{
+.bottom-content-hero {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -325,7 +327,7 @@ header {
   margin-top: 60px;
 }
 
-.card-hero{
+.card-hero {
   height: 86px;
   width: 250px;
   background-color: white;
@@ -338,22 +340,173 @@ header {
   padding: 10px;
 }
 
-.ikon-card{
- color: var(--red);
+.ikon-card {
+  color: var(--red);
 }
 
-.deskripsi-card{
+.deskripsi-card {
   line-height: 0;
 }
 
-.deskripsi-card p{
+.deskripsi-card p {
   font-size: 14px;
   color: gray;
 }
 
-.deskripsi-card h1{
+.deskripsi-card h1 {
   font-size: 34px;
   color: black;
+}
+
+
+
+.top-section-kategori {
+  display: flex;
+  margin: 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.all-produk,
+.all-kategori {
+  text-decoration: none;
+  color: white;
+  background-color: var(--red);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 12px;
+  border-radius: 30px;
+  gap: 5px;
+}
+
+.bottom-section-kategori {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+}
+
+.fashion-card {
+  background-color: var(--dark-pink);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  width: 600px;
+  height: 510px;
+  flex-direction: row-reverse;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.kerajinan-card {
+  background-color: var(--gray-900);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  width: 500px;
+  max-height: 250px;
+  flex-direction: row-reverse;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.elektronik-card {
+  background-color: var(--gray-800);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  width: 500px;
+  max-height: 250px;
+  flex-direction: row-reverse;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.kerajinan-card img,
+.elektronik-card img,
+.fashion-card img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+}
+
+.btn-information {
+  background-color: var(--red);
+  font-size: 14px;
+  padding: 10px;
+  max-width: 170px;
+  font-weight: 600;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.content-kerajinan .btn-information {
+  max-width: 110px;
+  padding: 6px;
+  font-size: 12px;
+  position: relative;
+  bottom: 20px;
+}
+
+.content-kerajinan,
+.content-fashion {
+  flex: 1;
+  display: flex;
+  min-height: 300px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 30px;
+}
+
+.content-kerajinan {
+  padding-top: 15px;
+}
+
+.content-fashion .button-action-hero {
+  position: relative;
+  top: 70px;
+}
+
+.content-kerajinan .button-action-hero {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  margin-bottom: 40px;
+}
+
+.content-fashion h1 {
+  font-size: 70px;
+  font-weight: 800;
+  letter-spacing: 6px;
+  margin: -60px 0px 5px 0px;
+}
+
+.content-kerajinan h1 {
+  font-size: 40px;
+  letter-spacing: 6px;
+  font-weight: 800;
+}
+
+.small-card-kategori {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 /* Responsive */
@@ -438,7 +591,7 @@ header {
   .navbar-menu-item-mobile li {
     list-style: none;
   }
-  
+
   .navbar-menu-item-mobile li a {
     text-decoration: none;
     color: black;
@@ -483,34 +636,34 @@ header {
     height: 65px;
   }
 
-  .hero-container{
+  .hero-container {
     flex-direction: column;
     align-items: center;
     margin-top: 35px;
   }
 
-  .right-content-hero{
-  width: 300px;
-  margin-top: 35px;
+  .right-content-hero {
+    width: 300px;
+    margin-top: 35px;
   }
 
-  .main-left-content-hero h1{
-  font-size: 45px;
-  line-height: 15px;
-}
+  .main-left-content-hero h1 {
+    font-size: 45px;
+    line-height: 15px;
+  }
 
-.main-left-content-hero p{
-  font-family: "Poppins", sans-serif;
-  font-size: 12px;
-}
+  .main-left-content-hero p {
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+  }
 
-.bottom-content-hero{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  width: fit-content;
-  margin: 0 auto;
-}
+  .bottom-content-hero {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    width: fit-content;
+    margin: 0 auto;
+  }
 
   .card-hero {
     width: 150px;
