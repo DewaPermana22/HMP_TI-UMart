@@ -6,7 +6,7 @@
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="assets/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UMart</title>
 </head>
@@ -17,20 +17,20 @@
                 <img src="assets/UmMart - Logo.svg" alt="logo-aplikasi">
             </div>
             <ul class="navbar-menu-item">
-                <li><a href="#">Beranda</a></li>
-                <li><a href="#">Kategori</a></li>
-                <li><a href="#">Produk</a></li>
-                <li><a href="#">Artikel</a></li>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="/pages/allCategories.html">Kategori</a></li>
+                <li><a href="/pages/allProducts.html">Produk</a></li>
+                <li><a href="/pages/allArticles.html">Artikel</a></li>
                 <li><a href="#">Tentang</a></li>
             </ul>
             <div class="button-region-nav">
-                <button class="search-button">
+                <button id="search-button">
                     <img src="assets/icon/search.svg"></img>
                 </button>
-                <button class="cart-button">
+                <button id="cart-button">
                     <img src="assets/icon/shopping-cart.svg"></img>
                 </button>
-                <button class="auth-button">
+                <button id="auth-button">
                     <img src="assets/icon/user-round.svg">
                         </img>
                     <span>Masuk</span>
@@ -38,13 +38,13 @@
             </div>
             <div class="navbar-content-mobile">
                 <div class="button-region-nav-mobile">
-                    <button class="search-button">
+                    <button id="search-button">
                         <img src="assets/icon/search.svg"></img>
                     </button>
-                    <button class="cart-button">
+                    <button id="cart-button">
                         <img src="assets/icon/shopping-cart.svg"></img>
                     </button>
-                    <button class="auth-button">
+                    <button id="auth">
                         <img src="assets/icon/user-round.svg">
                         </img>
                     </button>
@@ -57,10 +57,10 @@
             </div>
         </nav>
         <ul class="navbar-menu-item-mobile">
-            <li><a href="#">Beranda</a></li>
-            <li><a href="#">Kategori</a></li>
-            <li><a href="#">Produk</a></li>
-            <li><a href="#">Artikel</a></li>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="/pages/allCategories.html">Kategori</a></li>
+            <li><a href="/pages/allProducts.html">Produk</a></li>
+            <li><a href="/pages/allArticles.html">Artikel</a></li>
             <li><a href="#">Tentang</a></li>
         </ul>
     </header>
@@ -92,64 +92,56 @@
             </div>
         </div>
         <div class="bottom-content-hero">
-            <div class="card-hero">
-                <div class="ikon-card">
-                    <i width="45" height="45" data-lucide="users-round"></i>
-                </div>
-                <div class="deskripsi-card">
-                    <h1>
-                        93K+ 
-                    </h1>
-                    <p>
-                        User Aktif
-                    </p>
-                </div>
-            </div>
-            <div class="card-hero">
-                <div class="ikon-card">
-                    <i width="45" height="45" data-lucide="package-search"></i>
-                </div>
-                <div class="deskripsi-card">
-                    <h1>
-                        2K+ 
-                    </h1>
-                    <p>
-                        Produk
-                    </p>
-                </div>
-            </div>
-            <div class="card-hero">
-                <div class="ikon-card">
-                    <i width="45" height="45" data-lucide="wallet-cards"></i>
-                </div>
-                <div class="deskripsi-card">
-                    <h1>
-                        10+ 
-                    </h1>
-                    <p>
-                        Kategori
-                    </p>
-                </div>
-            </div>
-            <div class="card-hero">
-                <div class="ikon-card">
-                    <i width="45" height="45" data-lucide="store"></i>
-                </div>
-                <div class="deskripsi-card">
-                    <h1>
-                        950+
-                    </h1>
-                    <p>
-                        Toko UMKM
-                    </p>
-                </div>
-            </div>
+    <div class="card-hero">
+        <div class="ikon-card">
+            <i width="45" height="45" data-lucide="users-round"></i>
         </div>
+        <div class="deskripsi-card">
+            <h1 data-counter="93" data-suffix="K+">
+                0K+ <!-- Nilai awal akan diisi oleh JavaScript -->
+            </h1>
+            <p>User Aktif</p>
+        </div>
+    </div>
+    <div class="card-hero">
+        <div class="ikon-card">
+            <i width="45" height="45" data-lucide="package-search"></i>
+        </div>
+        <div class="deskripsi-card">
+            <h1 data-counter="2" data-suffix="K+">
+                0K+
+            </h1>
+            <p>Produk</p>
+        </div>
+    </div>
+    <div class="card-hero">
+        <div class="ikon-card">
+            <i width="45" height="45" data-lucide="wallet-cards"></i>
+        </div>
+        <div class="deskripsi-card">
+            <h1 data-counter="10" data-suffix="+">
+                0+
+            </h1>
+            <p>Kategori</p>
+        </div>
+    </div>
+    <div class="card-hero">
+        <div class="ikon-card">
+            <i width="45" height="45" data-lucide="store"></i>
+        </div>
+        <div class="deskripsi-card">
+            <h1 data-counter="950" data-suffix="+">
+                0+
+            </h1>
+            <p>Toko UMKM</p>
+        </div>
+    </div>
+</div>
     </section>
 
     <!-- Section Kategori -->
      <section class="section-kategori">
-        <div class="top-section-kategori">
+        <div class="top-section">
             <h1>TOP <span style="color: var(--red);">Kategori</span></h1>
             <a class="all-kategori" href="pages/allCategories.html">
                 <i data-lucide="search"></i>
@@ -216,12 +208,45 @@
 
     <!-- Section Produk -->
     <section class="section-produk">
-        <div class="top-content-produk">
+        <div class="top-section">
             <h1>Produk <span style="color: var(--red);">Unggulan</span></h1>
-            <a class="all-produk" href="pages/allProducts.html">
-                <i data-lucide="search"></i>
-                Lihat Semua Produk
-    <script src="script/script.js">
-    </script>
+            <div class="section-controls">
+                <a class="all-produk" href="/pages/allProducts.html">
+                    <i data-lucide="search"></i>
+                    Lihat Semua Produk
+                </a>
+            </div>
+        </div>
+        <div class="products-grid-container">
+            <div id="products-loading" class="products-loading">
+                <i data-lucide="loader-2"></i>
+                <p>Memuat produk...</p>
+            </div>
+            <div id="products-grid" class="products-grid">
+                <!-- nanti listnya produk di munculin di sini -->
+            </div>
+            <div id="products-empty" class="products-empty" style="display: none;">
+                <i data-lucide="package-x"></i>
+                <p>Tidak ada produk ditemukan</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Artikel -->
+     <section class="section-produk">
+        <div class="top-section">
+            <h1>Cara memulai bisnis<span style="color: var(--red);"> UMKM?</span></h1>
+            <div class="section-controls">
+                <a class="all-produk" href="/pages/allArticles.html">
+                    <i data-lucide="book-key"></i>
+                    Jelajahi Semua Artikel
+                </a>
+            </div>
+        </div>
+     </section>
+    <script src="script/data.js"></script>
+    <script src="script/utils.js"></script>
+    <script src="script/produkManager.js"></script>
+    <script src="script/script.js"></script>
 </body>
 </html>
