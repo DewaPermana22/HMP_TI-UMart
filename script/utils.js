@@ -71,3 +71,62 @@ function renderProducts(products) {
     const productsHTML = products.map(product => renderProduct(product)).join('');
     gridElement.innerHTML = productsHTML;
 }
+
+
+// Render Artikel
+function renderArticles(artikel){
+    return `
+        <div class="artikel-card">
+        <img src="${artikel.image}" 
+         alt="${artikel.name}" class="artikel-image">
+    
+    <div class="artikel-content">
+        <h3 class="artikel-title">${artikel.name}</h3>
+        
+        <p class="artikel-desc">
+            ${artikel.description}
+        </p>
+        
+        <div class="artikel-author">
+            <img src="${artikel.authorImage}" 
+                 alt="Author" class="artikel-author-avatar">
+            <div class="artikel-author-info">
+                <div class="artikel-author-name">${artikel.author}</div>
+                <div class="artikel-author-role">${artikel.role}</div>
+            </div>
+            <div class="artikel-stats">
+            <div class="artikel-stat1">
+                <img src="/assets/icon/heart-regular.svg" alt="like"> 
+                ${artikel.liked}
+            </div>
+            <div class="artikel-stat">
+                <img src="/assets/icon/bookmark-regular.svg" alt="bookmark"> 
+                ${artikel.saved}
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    `
+}
+
+
+function renderArtikels(artikels) {
+    const loadingElement = document.getElementById('artikel-loading');
+    const gridElement = document.getElementById('articles-grid');
+    const emptyElement = document.getElementById('articles-empty');
+    
+    if (loadingElement) loadingElement.style.display = 'none';
+    
+    if (artikels.length === 0) {
+        gridElement.style.display = 'none';
+        emptyElement.style.display = 'flex';
+        return;
+    }
+
+    emptyElement.style.display = 'none';
+    gridElement.style.display = 'grid';
+    
+    const productsHTML = artikels.map(artikel => renderArticles(artikel)).join('');
+    gridElement.innerHTML = productsHTML;
+}

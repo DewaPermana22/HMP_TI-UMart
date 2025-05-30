@@ -38,6 +38,7 @@ authButtonMobile.addEventListener('click', () => {
 
 document.addEventListener('DOMContentLoaded', function() {
     loadProducts();
+    loadArtikels();
     
     const searchInput = document.getElementById('search-product-input');
     const searchBtn = document.getElementById('search-product-btn');
