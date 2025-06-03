@@ -1,0 +1,61 @@
+.body-keranjang{
+    padding: 40px;
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    margin-top: 55px;
+}
+
+.header-judul-keranjang {
+    background-color: var(--gray-200);
+    border-radius: 10px;
+    height: 100%;
+    max-height: 45px;
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-judul-keranjang h2{
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.btn-pilih.active{
+    display: block;
+}
+
+.btn-pilih{
+    display: none;
+}
+
+.container-action-button{
+    display: none;
+}
+
+.container-action-button.active{
+    display: block;
+}
+
+#button-hapus,
+#button-batal,
+.btn-pilih{
+    text-transform: capitalize;
+    border: none;
+    font-family: "Poppins", sans-serif;
+    background-color: transparent;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--red);
+}
+
+#button-hapus{
+    color: black;
+}
+
+.cart-item{
+    display: flex;
+    background-color: var(--gray-200);
+}

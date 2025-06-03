@@ -457,7 +457,7 @@ header {
 }
 
 .content-kerajinan {
-  padding-top: 15px;
+  padding: 15px;
 }
 
 .content-fashion .button-action-hero {
@@ -934,10 +934,6 @@ header {
   max-width: 881px;
 }
 
-.right-content-tentang-kami {
-  flex: 0 0 400px;
-}
-
 .border-button-switch {
   margin-bottom: 10px;
 }
@@ -976,8 +972,8 @@ header {
 }
 
 .button-switch button:hover:not(.active) {
-  background: #9ca3af;
-  color: #374151;
+  background: var(--gray-200);
+  color: var(--gray);
 }
 
 .tab-content {
@@ -1032,7 +1028,7 @@ header {
 .top-content-footer {
   display: flex;
   gap: 80px;
-  padding: 30px 40px;
+  padding: 30px 40px 10px 40px;
 }
 
 .footer-logo-desc p {
@@ -1282,6 +1278,29 @@ header {
     margin: 0 auto;
   }
 
+  .fashion-card {
+    max-height: 250px;
+    width: 450px;
+  }
+
+  .kerajinan-card,
+  .elektronik-card{
+    width: 450px;
+  }
+
+  .content-fashion{
+    min-height: 50px;
+  }
+
+   .content-fashion h1{
+    font-size: 50px;
+  }
+
+  .btn-information {
+  font-size: 12px;
+  padding: 10px;
+  }
+
   .top-section {
     margin: 0px 20px 30px;
   }
@@ -1471,13 +1490,74 @@ header {
     margin: 0 auto;
   }
 
+ 
+  .fashion-card {
+  width: 350px;
+  height: 200px;
+  }
+  
+  .kerajinan-card,
+  .elektronik-card{
+    width: 350px;
+    height: 200px;
+  }
+
+  .content-fashion .button-action-hero {
+    top: 30px;
+  }
+  
+  .content-kerajinan .button-action-hero .btn-shop,
+  .content-fashion .button-action-hero .btn-shop{
+    width: 130px;
+    text-align: center;
+    height: 30px;
+    border-radius: 50px;
+    padding: 0;
+    font-size: 10px;
+  }
+
+  .btn-information {
+  font-size: 10px;
+  padding: 6px;
+  border-radius: 20px;
+  max-width: 115px;
+}
+
+.content-fashion h1 {
+  font-size: 45px;
+  margin: -40px 0px 5px 0px;
+}
+
+.content-kerajinan h1{
+  font-size: 40px;
+}
+
+.content-kerajinan{
+  min-height: 200px;
+  margin: -40px 0px 0px 0px;
+}
+
+.content-kerajinan .button-action-hero {
+  margin-bottom: 0;
+}
+
+.content-fashion {
+  min-height: 100px;
+  padding-left: 20px;
+  }
+
   #auth-button {
     width: 30px;
+  }
+
+  .header-tentang-kami p{
+    text-align: justify;
   }
 
   .top-section {
     display: flex;
     margin: 0px 10px 30px;
+    padding: 20px;
     align-items: center;
     justify-content: space-between;
   }
@@ -1532,7 +1612,7 @@ header {
   }
 
   .border-footer {
-    max-width: 95%;
+    max-width: 90%;
     border-radius: 20px;
     margin: 10px auto;
   }
@@ -1540,4 +1620,40 @@ header {
   .bottom-content-footer {
     padding-bottom: 15px;
   }
+
+   .body-tentang-kami {
+    padding: 10px;
+  }
+
+   .body-tentang-kami img{
+    width: 95%;
+  }
+
+  .left-content-tentang-kami > p {
+ text-align: justify;
+}
+
+.bottom-content-footer{
+  font-size: 12px;
+}
+
+.kontak-kami :not(h3){
+  font-size: 12px;
+}
+
+.footer-logo-desc p{
+  text-align: justify;
+  font-size: 13px;
+}
+
+.sosial-icon {
+  gap: 20px;
+}
+
+.top-content-footer {
+  display: flex;
+  gap: 10px;
+  padding: 30px 40px 10px 40px;
+}
+
 }

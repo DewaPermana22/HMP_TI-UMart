@@ -6,6 +6,7 @@
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="/assets/keranjang.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UMart</title>
@@ -30,11 +31,11 @@
                 <button id="cart-button">
                     <img src="/assets/icon/shopping-cart.svg"></img>
                 </button>
-                <!-- <button class="auth-button">
+                <button class="auth-button">
                     <img src="/assets/icon/user-round.svg">
                         </img>
                     <span>Masuk</span>
-                </button> -->
+                </button>
             </div>
             <div class="navbar-content-mobile">
                 <div class="button-region-nav-mobile">
@@ -44,10 +45,10 @@
                     <button class="cart-button">
                         <img src="/assets/icon/shopping-cart.svg"></img>
                     </button>
-                    <!-- <button class="auth-button">
+                    <button class="auth-button">
                         <img src="assets/icon/user-round.svg">
                         </img>
-                    </button> -->
+                    </button>
                 </div>
                 <button class="hamburger-menu" id="ikon_menu">
                     <span class="bar"></span>
@@ -64,9 +65,28 @@
             <li><a href="#">Tentang</a></li>
         </ul>
     </header>
-    <h1>Ini Adalah Keranjang</h1>
+    <section class="body-keranjang">
+        <div class="header-judul-keranjang">
+            <h2>produk di keranjang</h2>
+            <button class="btn-pilih active" id="button-pilih">pilih produk</button>
+            <div class="container-action-button">
+                <button id="button-hapus">Hapus</button>
+                <button id="button-batal">Batal</button>
+            </div>
+        </div>
+        <div class="box-total-harga">
+            <h3>Total pembayaran</h3>
+            <div>
+                <div class="subtotal">
+                    <p>Subtotal</p>
+                    <p id="subtotal-harga"></p>
+                </div>
+            </div>
+        </div>
+    </section>
     <div id="cart-container"></div>
     <script src="/script/cart.js"></script>
     <script src="/script/script.js"></script>
+    <script src="/script/scriptKeranjang.js"></script>
 </body>
 </html>
