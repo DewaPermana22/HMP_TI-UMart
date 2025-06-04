@@ -66,27 +66,37 @@
         </ul>
     </header>
     <section class="body-keranjang">
-        <div class="header-judul-keranjang">
-            <h2>produk di keranjang</h2>
-            <button class="btn-pilih active" id="button-pilih">pilih produk</button>
-            <div class="container-action-button">
-                <button id="button-hapus">Hapus</button>
-                <button id="button-batal">Batal</button>
+        <div class="header-container-keranjang">
+            <div class="header-judul-keranjang">
+                <h2>keranjang anda</h2>
+                <button class="btn-pilih active" id="button-pilih">pilih produk</button>
+                <div class="container-action-button">
+                    <button id="button-hapus">Hapus</button>
+                    <button id="button-batal">Batal</button>
+                </div>
             </div>
+            <div id="cart-container"></div>
         </div>
         <div class="box-total-harga">
             <h3>Total pembayaran</h3>
             <div>
                 <div class="subtotal">
                     <p>Subtotal</p>
-                    <p id="subtotal-harga"></p>
+                    <p id="subtotal-harga">Rp. -</p>
+                </div>
+                 <div class="subtotal">
+                    <p>Pajak</p>
+                    <p id="pajak-display">Rp. -</p>
+                </div>
+                <div class="subtotal">
+                    <p>Ongkir</p>
+                    <p id="ongkir-display">Rp. -</p>
                 </div>
             </div>
+            <button id="bayar-button"></button>
         </div>
     </section>
-    <div id="cart-container"></div>
-    <script src="/script/cart.js"></script>
-    <script src="/script/script.js"></script>
     <script src="/script/scriptKeranjang.js"></script>
+    <script src="/script/script.js"></script>
 </body>
 </html>
