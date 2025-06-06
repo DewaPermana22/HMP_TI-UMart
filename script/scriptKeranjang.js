@@ -1,11 +1,11 @@
-const bayarButton = document.getElementById('bayar-button');
+const bayarButton = document.querySelectorAll('#bayar-button');
 
 function displayCartItems() {
     const cartContainer = document.getElementById('cart-container');
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
     if (cart.length === 0) {
         cartContainer.innerHTML = '<p>Keranjang belanja kosong</p>';
+        updatePaymentDisplay(0, 0, 0, 0, true);
         return;
     }
     
@@ -53,22 +53,39 @@ function displayCartItems() {
     });
     
     cartContainer.innerHTML = html;
-    updatePaymentDisplay(0, 0, 0, 0, true);
+    hitungItemTerpilih();
 }
 
 function updatePaymentDisplay(subtotal, pajak, ongkir, total, disabled) {
     const formatRupiah = number => new Intl.NumberFormat('id-ID', {
         style: 'currency',
-        currency: 'IDR'
+        currency: 'IDR',
+        minimumFractionDigits: 0
     }).format(number);
 
-    bayarButton.innerText = `Bayar ${formatRupiah(total)}`;
-    document.getElementById('pajak-display').innerText = formatRupiah(pajak);
-    document.getElementById('subtotal-harga').innerText = formatRupiah(subtotal);
-    document.getElementById('ongkir-display').innerText = formatRupiah(ongkir);
+    bayarButton.forEach(btn => {
+        btn.innerText = `Bayar ${formatRupiah(total)}`;
+        btn.disabled = disabled;
+        disabled ? btn.classList.add('disabled') : btn.classList.remove('disabled');
+    });
     
-    bayarButton.disabled = disabled;
-    disabled ? bayarButton.classList.add('disabled') : bayarButton.classList.remove('disabled');
+    document.getElementById('pajak-display').innerText = formatRupiah(pajak);
+    document.querySelectorAll('#subtotal-harga').forEach(el => {
+        el.innerText = formatRupiah(subtotal);
+    });
+    document.getElementById('ongkir-display').innerText = formatRupiah(ongkir);
+}
+
+// Pilih Semua Items
+function selectAllItems() {
+    document.querySelectorAll('.cart-item').forEach(item => {
+        item.replaceWith(item.cloneNode(true));
+    });
+
+    document.querySelectorAll('.cart-item').forEach(item => {
+        item.classList.add('selected');
+        hitungItemTerpilih();
+    });
 }
 
 function hitungItemTerpilih() {
@@ -91,8 +108,16 @@ function hitungItemTerpilih() {
         });
     }
     
-    const pajakPPN = hitungItemTerpilih ? subtotalBelanjaan * 0.11 : 0;
-    const ongkir = hitungItemTerpilih ? 25000 : 0;
+    const pajakPPN = subtotalBelanjaan * 0.11;
+    const hargaPlusPajak = subtotalBelanjaan + pajakPPN;
+    let ongkir;
+    if (subtotalBelanjaan === 0) {
+        ongkir = 0;
+    } else if (hargaPlusPajak < 15000) {
+        ongkir = 5000;
+    } else {
+        ongkir = Math.floor(hargaPlusPajak / 15000) * 3000;
+    }
     const totalAkhir = subtotalBelanjaan + pajakPPN + ongkir;
 
     updatePaymentDisplay(
@@ -120,8 +145,13 @@ function updateQuantity(productId, change) {
     }
 }
 
-function increaseQuantity(productId) { updateQuantity(productId, 1); }
-function decreaseQuantity(productId) { updateQuantity(productId, -1); }
+function increaseQuantity(productId) {
+    updateQuantity(productId, 1);
+}
+
+function decreaseQuantity(productId) {
+    updateQuantity(productId, -1);
+}
 
 function removeFromCart(productId) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -156,7 +186,6 @@ function removeSelectionListeners() {
     });
 }
 
-// Event listeners
 document.querySelector(".btn-pilih")?.addEventListener("click", () => {
     document.querySelector(".btn-pilih").classList.remove("active");
     document.querySelector(".container-action-button").classList.add("active");
@@ -169,14 +198,154 @@ document.getElementById("button-batal")?.addEventListener("click", () => {
     document.querySelector(".container-action-button").classList.remove("active");
     unselectAllItems();
     removeSelectionListeners();
-    updatePaymentDisplay(0, 0, 0, 0, true);
+    hitungItemTerpilih();
 });
 
-if (!bayarButton.disabled) {
-    bayarButton.addEventListener("click", () => {
-       window.location.href = "/pages/payment_pages.html";
-    })    
+function simpanItemTerpilih() {
+    try {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const selectedItems = [...document.querySelectorAll('.cart-item.selected')];
+        const isSelectionMode = document.querySelector('.container-action-button')?.classList.contains('active');
+        
+        let itemsToPay = [];
+        
+        // Jika mode selection aktif dan ada item terpilih
+        if (isSelectionMode && selectedItems.length > 0) {
+            // Ambil item yang terpilih
+            itemsToPay = cart.filter(item => 
+                selectedItems.some(selectedItem => 
+                    parseInt(selectedItem.getAttribute('data-id')) === item.id
+                )
+            );
+        } else {
+            console.log('Selection mode Error mas!.');
+        }
+        console.log('Selection mode:', isSelectionMode);
+        console.log('Selected items count:', selectedItems.length);
+        console.log('Items to pay:', itemsToPay);
+        
+        // Simpan ke sessionStorage
+        sessionStorage.setItem('wantToPpay', JSON.stringify(itemsToPay));
+        return itemsToPay.length > 0;
+    } catch (error) {
+        console.error('Error:', error);
+        return false;
+    }
 }
 
-// Initialize
+// Panggil fungsi saat tombol bayar diklik
+bayarButton.forEach(btn => {
+    btn.addEventListener("click", async (e) => {
+        if (!btn.disabled) {
+            e.preventDefault();
+            const success = simpanItemTerpilih();
+            
+            if (success) {
+                const paymentData = JSON.parse(sessionStorage.getItem('wantToPpay'));
+                console.log('Payment data:', paymentData);
+                
+                if (paymentData?.length > 0) {
+                    window.location.href = "/pages/payment_pages.html";
+                } else {
+                    alert('Tidak ada item yang terpilih untuk dibayar');
+                }
+            } else {
+                alert('Gagal memproses pembayaran. Silakan coba lagi.');
+            }
+        }
+    });
+});
+
+const ovrlay = document.getElementById("modalOverlay");
+const modal = document.getElementById("modal");
+
+function openModal() {
+    const modalContent = document.getElementById("modalContent");
+    const subtotal = parseInt(document.querySelector('#subtotal-harga')?.innerText.replace(/[^0-9]/g, '') || 0);
+    const pajak = parseInt(document.getElementById('pajak-display')?.innerText.replace(/[^0-9]/g, '') || 0);
+    const ongkir = parseInt(document.getElementById('ongkir-display')?.innerText.replace(/[^0-9]/g, '') || 0);
+    const totalAkhir = subtotal + pajak + ongkir;
+
+    const formatRupiah = number => new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+        minimumFractionDigits: 0
+    }).format(number);
+
+    modalContent.innerHTML = `
+      <div class="subtotal">
+      <h4>Subtotal : </h4>
+      <p id="subtotal-mobile">${formatRupiah(subtotal)}</p>
+      </div>
+      <div class="subtotal">
+      <h4>Pajak : </h4>
+      <p id="pajak-mobile">${formatRupiah(pajak)}</p>
+      </div>
+      <div class="subtotal">
+      <h4>Ongkir : </h4>
+      <p id="ongkir-mobile">${formatRupiah(ongkir)}</p>
+      </div>
+      <div class="subtotal">
+      <h4>Total : </h4>
+      <p id="total-harga">${formatRupiah(totalAkhir)}</p>
+      </div>
+    `;
+
+    setTimeout(() => {
+        modal.classList.add("active");
+    }, 10);
+    ovrlay.classList.add("active");
+    document.body.style.overflow = "hidden";
+}
+
+function tutupModal() {
+    modal.classList.remove("active");
+    setTimeout(() => {
+        ovrlay.classList.remove("active");
+    }, 300);
+    document.body.style.overflow = "auto";
+}
+
+modal.addEventListener("click", (e) => {
+    e.stopPropagation();
+});
+
+let startY = 0;
+let currentY = 0;
+let dragging = false;
+
+modal.addEventListener("touchstart", (e) => {
+    startY = e.touches[0].clientY;
+    dragging = true;
+});
+
+modal.addEventListener("touchmove", (e) => {
+    if (dragging) {
+        currentY = e.touches[0].clientY;
+        const diffy = currentY - startY;
+        if (diffy > 0) {
+            modal.style.transform = `translateY(${diffy}px)`;
+        }
+    }
+});
+
+modal.addEventListener("touchend", () => {
+    if (!dragging) return;
+    const diffY = currentY - startY;
+    if (diffY > 100) {
+        tutupModal();
+    } else {
+        modal.style.transform = 'translateY(0)';
+    }
+    dragging = false;
+});
+
+//navigasi ke pembayaran saat button di modal di klik
+document.getElementById("btnModalGotoPay")?.addEventListener("click", () => {
+    tutupModal();
+    simpanItemTerpilih();
+    window.location.href = "/pages/payment_pages.html";
+})
+
 displayCartItems();
+document.documentElement.style.scrollBehavior = 'smooth';

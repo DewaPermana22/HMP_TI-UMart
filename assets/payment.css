@@ -1,0 +1,16 @@
+.nama-dan-noHp{
+    display: flex;
+    gap: 10px;
+}
+
+.nama, .no-hp, .alamat, .detail{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.detail-pemesanan-container{
+    padding: 20px;
+    background-color: var(--gray-200);
+    border-radius: 10px;
+}

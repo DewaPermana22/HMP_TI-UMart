@@ -19,7 +19,7 @@
             </div>
             <ul class="navbar-menu-item">
                 <li><a href="/index.html">Beranda</a></li>
-                <li><a href="allCategories.html">Kategori</a></li>
+                <li><a href="semua_kategori.html">Kategori</a></li>
                 <li><a href="#">Produk</a></li>
                 <li><a href="#">Artikel</a></li>
                 <li><a href="#">Tentang</a></li>
@@ -46,7 +46,7 @@
                         <img src="/assets/icon/shopping-cart.svg"></img>
                     </button>
                     <button class="auth-button">
-                        <img src="assets/icon/user-round.svg">
+                        <img src="/assets/icon/user-round.svg">
                         </img>
                     </button>
                 </div>
@@ -71,7 +71,7 @@
                 <h2>keranjang anda</h2>
                 <button class="btn-pilih active" id="button-pilih">pilih produk</button>
                 <div class="container-action-button">
-                    <button id="button-hapus">Hapus</button>
+                    <button onclick="selectAllItems()" id="button-hapus">Pilih Semua</button>
                     <button id="button-batal">Batal</button>
                 </div>
             </div>
@@ -95,7 +95,33 @@
             </div>
             <button id="bayar-button"></button>
         </div>
-    </section>
+        <div class="box-total-mobile">
+            <h2 id="subtotal-harga">Rp. -</h2>
+            <div class="box-bayar-mobile">
+                <button id="bayar-button"></button>
+                <button onclick="openModal()" id="button-detail-payment">
+                    <i data-lucide="chevron-up"></i>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+<div id="modalOverlay" class="modal-overlay">
+    <div class="modal" id="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+        <div class="modal-handle"></div>
+        <div class="modal-title" id="modalTitle">Detail Pembayaran</div>
+        <button class="modal-close" onclick="tutupModal()">&times;</button>
+    </div>
+    <div class="modal-content" id="modalContent">
+       <!-- Konten Modal -->
+    </div>
+    <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="tutupModal()">Tutup</button>
+        <button id="btnModalGotoPay" class="btn btn-primary">Lanjut ke Pembayaran</button>
+    </div>
+</div>
     <script src="/script/scriptKeranjang.js"></script>
     <script src="/script/script.js"></script>
 </body>

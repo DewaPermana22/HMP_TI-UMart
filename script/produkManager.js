@@ -43,6 +43,7 @@ function addToCart(productId) {
     }
 
     localStorage.setItem('cart', JSON.stringify(cart));
+    console.log('Product added to cart:', cart);
     alert(`${product.name} ditambahkan ke keranjang!, Silahkan cek keranjang`);
 }
 

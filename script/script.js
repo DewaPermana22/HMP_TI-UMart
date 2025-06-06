@@ -38,35 +38,35 @@ document.addEventListener("DOMContentLoaded", function () {
   loadProducts();
   loadArtikels();
 
-  const searchInput = document.getElementById("search-product-input");
-  const searchBtn = document.getElementById("search-product-btn");
-  const sortSelect = document.getElementById("sort-product-select");
+  // const searchInput = document.getElementById("search-product-input");
+  // const searchBtn = document.getElementById("search-product-btn");
+  // const sortSelect = document.getElementById("sort-product-select");
 
-  // fungsi buat cari ya! kakak ganteng & cantik :3
-  if (searchBtn) {
-    searchBtn.addEventListener("click", function () {
-      const query = searchInput ? searchInput.value : "";
-      searchProducts(query);
-    });
-  }
+  // // fungsi buat cari ya! kakak ganteng & cantik :3
+  // if (searchBtn) {
+  //   searchBtn.addEventListener("click", function () {
+  //     const query = searchInput ? searchInput.value : "";
+  //     searchProducts(query);
+  //   });
+  // }
 
-  // fungsi buat search lalu di enter ya! kakak ganteng & cantik :3
-  if (searchInput) {
-    searchInput.addEventListener("keypress", function (e) {
-      if (e.key === "Enter") {
-        const query = searchInput.value;
-        searchProducts(query);
-      }
-    });
-  }
+  // // fungsi buat search lalu di enter ya! kakak ganteng & cantik :3
+  // if (searchInput) {
+  //   searchInput.addEventListener("keypress", function (e) {
+  //     if (e.key === "Enter") {
+  //       const query = searchInput.value;
+  //       searchProducts(query);
+  //     }
+  //   });
+  // }
 
-  // fungsi buat sort ya! kakak ganteng & cantik :3
-  if (sortSelect) {
-    sortSelect.addEventListener("change", function () {
-      const sortBy = sortSelect.value;
-      sortProducts(sortBy);
-    });
-  }
+  // // fungsi buat sort ya! kakak ganteng & cantik :3
+  // if (sortSelect) {
+  //   sortSelect.addEventListener("change", function () {
+  //     const sortBy = sortSelect.value;
+  //     sortProducts(sortBy);
+  //   });
+  // }
 
   // Fungsi buat di card
   function animateCounter(element, target, suffix, duration = 2000) {
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
     requestAnimationFrame(updateCounter);
   }
 
-  function startCountersWhenVisible() {
+  function mulaiCounterCard() {
     const counters = document.querySelectorAll("[data-counter]");
     const observerOptions = {
       threshold: 0.8,
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
       observer.observe(counter);
     });
   }
-  startCountersWhenVisible();
+  mulaiCounterCard();
 
   // Tab fungsi
   const tabButtons = document.querySelectorAll(".tab-button");
