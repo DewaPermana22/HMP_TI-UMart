@@ -40,7 +40,7 @@ function renderProduct(product) {
                     <span class="rating-count">(${product.reviewCount})</span>
                 </div>
                 <div class="product-actions">
-                    <button class="btn-cart" onclick="addToCart(${product.id})">
+                    <button class="btn-cart" onclick="openModalVariant(${product.id})">
                         🛒
                     </button>
                     <button class="btn-buy" onclick="buyNow(${product.id})">

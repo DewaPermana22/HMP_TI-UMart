@@ -360,16 +360,21 @@
             <div class="modal">
                 <div class="modal-header">
                     <h2>Pilih Varian Produk</h2>
-                    <button class="close-modal" id="close-modal">
+                    <button onclick="closeModalVariant()" class="close-modal" id="close-modal">
                         <i data-lucide="x"></i>
                     </button>
                 </div>
                 <div id="modalContent" class="modal-content">
-
+                    <div class="variant-container">
+                        <!-- container variant -->
+                    </div>
+                    <div class="color-container">
+                        <!-- container color -->
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button>Tambahkan ke Keranjang</button>
-                    <button>Batal</button>
+                    <button id="add-to-cart">Tambahkan ke Keranjang</button>
+                    <button onclick="closeModalVariant()">Batal</button>
                 </div>
             </div>
         </div>

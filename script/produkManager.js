@@ -12,13 +12,72 @@ function loadProducts() {
   }, 500);
 }
 
-function addToCart(productId) {
+function openModalVariant(productId) {
   const modal = document.getElementById("modal-variant");
+  const colorContainer = document.querySelector(".color-container");
+  const variantContainer = document.querySelector(".variant-container");
   const product = productsData.find((p) => p.id === productId);
   const arrayVariant = product.variant || [];
   const arrayColor = product.color || [];
 
-  // Inisialisasi cart dari localStorage
+  let htmlContentColor = "";
+  let htmlContentVariant = "";
+
+  // Pengecekan varian/warna
+  if (arrayColor.length > 0 || arrayVariant.length > 0) {
+    modal.classList.add("active");
+    arrayColor.map((color) => {
+      htmlContentColor += `<div id="optionColor" style="background-color: ${color.hex};" class="color-option" data-color="${color.name}">
+      </div>`;
+    });
+
+    arrayVariant.map((variant) => {
+      htmlContentVariant += `<div class="variant-option" data-variant="${variant}">
+        <span>${variant}</span>
+      </div>`;
+    });
+
+    colorContainer.innerHTML = htmlContentColor;
+    variantContainer.innerHTML = htmlContentVariant;
+    let selectedColor = "";
+    let selectedVariant = "";
+
+    const selectColor = document.querySelectorAll(".color-option");
+    if (selectColor && selectColor.length > 0) {
+      selectColor.forEach((color) => {
+        color.addEventListener("click", function () {
+          selectColor.forEach((c) => c.classList.remove("selected"));
+          color.classList.add("selected");
+          selectedColor = color.getAttribute("data-color");
+        });
+      });
+
+      const selectVariant = document.querySelectorAll(".variant-option");
+      if (selectVariant && selectVariant.length > 0) {
+        selectVariant.forEach((variant) => {
+          variant.addEventListener("click", function () {
+            selectVariant.forEach((c) => c.classList.remove("selected"));
+
+            variant.classList.add("selected");
+            selectedVariant = variant.getAttribute("data-variant");
+          });
+        });
+
+        document.getElementById("add-to-cart").addEventListener("click", function () {
+          if (selectedColor || selectedVariant) {
+            addToCart(productId, selectedColor, selectedVariant);
+          }
+        });
+        
+      }
+    } else {
+      addToCart(productId);
+    }
+  }
+}
+
+function addToCart(productId, selectedColor = null, selectedVariant = null) {
+  const product = productsData.find((p) => p.id === productId);
   let cart;
   try {
     cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -31,30 +90,49 @@ function addToCart(productId) {
     cart = [];
   }
 
-  // Pengecekan varian/warna
-  if (arrayColor.length > 0 || arrayVariant.length > 0) {
-    // Jika produk memiliki varian ATAU warna
-    modal.classList.add("active");
-    console.log("Produk memiliki varian/warna, membuka modal");
-    return;
-  }
+  const uniqueId =
+    selectedColor || selectedVariant
+      ? `${productId}-${selectedColor || ""}-${selectedVariant || ""}`
+      : productId;
 
-  // Jika produk tidak memiliki varian atau warna, langsung tambahkan ke keranjang
-  const existing = cart.findIndex((item) => item.id === productId);
+  const existing = cart.findIndex((item) => item.uniqueId === uniqueId);
+
   if (existing !== -1) {
+    // Jika produk sudah ada, tambah quantity
     cart[existing].quantity += 1;
   } else {
+    // Jika produk belum ada, tambahkan sebagai item baru
     cart.push({
       id: product.id,
+      uniqueId: uniqueId,
       name: product.name,
       price: product.currentPrice,
       image: product.image,
       quantity: 1,
+      color: selectedColor,
+      variant: selectedVariant,
     });
   }
 
   localStorage.setItem("cart", JSON.stringify(cart));
-  alert(`${product.name} ditambahkan ke keranjang!, Silahkan cek keranjang`);
+
+  const modal = document.getElementById("modal-variant");
+  if (modal) {
+    modal.classList.remove("active");
+  }
+
+  const productName =
+    selectedColor || selectedVariant
+      ? `${product.name} (${selectedColor || selectedVariant})`
+      : product.name;
+  alert(`${productName} ditambahkan ke keranjang! Silahkan cek keranjang`);
+}
+
+function closeModalVariant() {
+  const modal = document.getElementById("modal-variant");
+  if (modal) {
+    modal.classList.remove("active");
+  }
 }
 
 function buyNow(productId) {
