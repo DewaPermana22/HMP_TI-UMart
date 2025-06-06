@@ -6,32 +6,33 @@
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="/assets/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UMKM Market - UMart</title>
+    <link rel="icon" type="image/png" href="/assets/UmMart - Logo_OnlyBag.svg" />
 </head>
 <body>
     <header class="header">
         <nav class="navbar-container">
-            <div class="logo">
-                <img src="assets/UmMart - Logo.svg" alt="logo-aplikasi">
-            </div>
+            <a href="#" class="logo">
+                <img src="/assets/UmMart - Logo.svg" alt="logo-aplikasi">
+            </a>
             <ul class="navbar-menu-item">
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="/pages/semua_kategori.html">Kategori</a></li>
-                <li><a href="/pages/allProducts.html">Produk</a></li>
-                <li><a href="/pages/allArticles.html">Artikel</a></li>
-                <li><a href="#">Tentang</a></li>
+                <li><a class="active" href="#hero">Beranda</a></li>
+                <li><a href="#kategori">Kategori</a></li>
+                <li><a href="#produk">Produk</a></li>
+                <li><a href="#artikel">Artikel</a></li>
+                <li><a href="#tentang">Tentang</a></li>
             </ul>
             <div class="button-region-nav">
                 <button id="search-button">
-                    <img src="assets/icon/search.svg"></img>
+                    <img src="/assets/icon/search.svg"></img>
                 </button>
                 <button id="cart-button">
-                    <img src="assets/icon/shopping-cart.svg"></img>
+                    <img src="/assets/icon/shopping-cart.svg"></img>
                 </button>
                 <button id="auth-button">
-                    <img src="assets/icon/user-round.svg">
+                    <img src="/assets/icon/user-round.svg">
                         </img>
                     <span>Masuk</span>
                 </button>
@@ -39,13 +40,13 @@
             <div class="navbar-content-mobile">
                 <div class="button-region-nav-mobile">
                     <button id="search-button">
-                        <img src="assets/icon/search.svg"></img>
+                        <img src="/assets/icon/search.svg"></img>
                     </button>
                     <button id="cart-button">
-                        <img src="assets/icon/shopping-cart.svg"></img>
+                        <img src="/assets/icon/shopping-cart.svg"></img>
                     </button>
                     <button id="auth">
-                        <img src="assets/icon/user-round.svg">
+                        <img src="/assets/icon/user-round.svg">
                         </img>
                     </button>
                 </div>
@@ -57,14 +58,14 @@
             </div>
         </nav>
         <ul class="navbar-menu-item-mobile">
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="/pages/semua_kategori.html">Kategori</a></li>
-            <li><a href="/pages/allProducts.html">Produk</a></li>
-            <li><a href="/pages/allArticles.html">Artikel</a></li>
-            <li><a href="#">Tentang</a></li>
+            <li><a href="#hero">Beranda</a></li>
+            <li><a href="#kategori">Kategori</a></li>
+            <li><a href="#produk">Produk</a></li>
+            <li><a href="#artikel">Artikel</a></li>
+            <li><a href="#tentang">Tentang</a></li>
         </ul>
     </header>
-    <section>
+    <section id="hero">
         <div class="hero-container">
             <div class="left-content-hero">
                 <button class="btn-content-hero">
@@ -140,7 +141,7 @@
     </section>
 
     <!-- Section Kategori -->
-     <section class="section-kategori">
+     <section id="kategori" class="section-kategori">
         <div class="top-section">
             <h1>TOP <span style="color: var(--red);">Kategori</span></h1>
             <a class="all-kategori" href="pages/semua_kategori.html">
@@ -207,11 +208,11 @@
      </section>
 
     <!-- Section Produk -->
-    <section class="section-produk">
+    <section id="produk" class="section-produk">
         <div class="top-section">
             <h1>Produk <span style="color: var(--red);">Unggulan</span></h1>
             <div class="section-controls">
-                <a class="all-produk" href="/pages/allProducts.html">
+                <a class="all-produk" href="/pages/semua_produk.html">
                     <i data-lucide="search"></i>
                     Lihat Semua Produk
                 </a>
@@ -233,11 +234,11 @@
     </section>
 
     <!-- Section Artikel -->
-     <section class="section-produk">
+     <section id="artikel" class="section-produk">
         <div class="top-section">
             <h1>Cara memulai bisnis<span style="color: var(--red);"> UMKM?</span></h1>
             <div class="section-controls">
-                <a class="all-produk" href="/pages/allArticles.html">
+                <a class="all-produk" href="/pages/semua_artikel.html">
                     <i data-lucide="book-key"></i>
                     Jelajahi Semua Artikel
                 </a>
@@ -259,7 +260,7 @@
      </section>
 
      <!-- Section About -->
-      <section class="tentang-kami-section">
+      <section id="tentang" class="tentang-kami-section">
         <div class="header-tentang-kami">
             <h1>Tentang <span style="color: var(--red);">Kami</span></h1>
             <p><span style="font-weight: 700;">UMart</span> adalah platform digital yang mendukung pertumbuhan UMKM lokal. Kami hadir untuk mempromosikan produk-produk berkualitas, kreatif, dan berdaya saing tinggi. Melalui inovasi dan digitalisasi, <span style="font-weight: 700;">UMart</span> berkomitmen menjadi bagian dari kemajuan ekonomi lokal yang berkelanjutan.</p>
@@ -294,7 +295,9 @@
         <div class="top-content-footer">
             <div class="footer-logo-desc">
                 <div class="logo-footer">
-                    <img src="assets/UmMart - Logo.svg" alt="logo UMart">
+                    <a href="#">
+                        <img src="assets/UmMart - Logo.svg" alt="logo UMart">
+                    </a>
                 </div>
                 <p>UMart adalah sebuah platform marketplace digital yang dirancang khusus untuk membantu pelaku Usaha Mikro, Kecil, dan Menengah (UMKM) di Indonesia dalam memasarkan produknya secara lebih luas, mudah, dan profesional. dan semoga dengan adanya umart bisa mendukung umkm lebih maju lagi</p>
             </div>
@@ -370,10 +373,11 @@
                 </div>
             </div>
         </div>
-    <script src="script/data.js"></script>
-    <script src="script/utils.js"></script>
-    <script src="script/produkManager.js"></script>
-    <script src="script/artikelManager.js"></script>
-    <script src="script/script.js"></script>
+    <script src="/script/lucideLoad.js"></script>
+    <script src="/script/data.js"></script>
+    <script src="/script/utils.js"></script>
+    <script src="/script/produkManager.js"></script>
+    <script src="/script/artikelManager.js"></script>
+    <script src="/script/script.js"></script>
 </body>
 </html>

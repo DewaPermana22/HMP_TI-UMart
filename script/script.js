@@ -1,13 +1,25 @@
-function initLucideIcons() {
-  if (window.lucide) {
-    lucide.createIcons();
-  } else {
-    setTimeout(initLucideIcons, 100);
-  }
-}
-
-document.addEventListener("DOMContentLoaded", initLucideIcons);
-window.addEventListener("load", initLucideIcons);
+const semuaSection = document.querySelectorAll("section"),
+semuaMenuLink = document.querySelectorAll(".navbar-menu-item li a");
+window.addEventListener("scroll", () => {
+  semuaSection.forEach(section => {
+    let windowScrollY = window.scrollY,
+    offsetTopSection = section.offsetTop - 100,
+    sectionHeight = section.offsetHeight,
+    idSection = section.getAttribute("id");
+    
+    if(windowScrollY >= offsetTopSection && windowScrollY < offsetTopSection + sectionHeight) {
+      semuaMenuLink.forEach(link => {
+        link.classList.remove("active");
+        document.querySelector(".navbar-menu-item li a[href*=" + idSection + "]").classList.add("active");
+        
+      })
+      
+    }
+    
+    
+  })
+  
+})
 
 const menuBtn = document.getElementById("ikon_menu");
 const menuMobile = document.querySelector(".navbar-menu-item-mobile");

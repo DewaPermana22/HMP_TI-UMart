@@ -4,31 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UMart - Semua Kategori</title>
-    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/semua_kategori.css">
+    <link rel="icon" type="image/png" href="/assets/UmMart - Logo_OnlyBag.svg" />
 </head>
 <body>
     <header class="header">
         <nav class="navbar-container">
-            <div class="logo">
-                <img src="/assets/UmMart - Logo.svg" alt="logo-aplikasi">
-            </div>
+            <a href="/" class="logo">
+                <img src="/assets/UmMart - Logo_White.svg" alt="logo-aplikasi">
+            </a>
             <ul class="navbar-menu-item">
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="/pages/semua_kategori.html">Kategori</a></li>
-                <li><a href="/pages/allProducts.html">Produk</a></li>
-                <li><a href="/pages/allArticles.html">Artikel</a></li>
-                <li><a href="#">Tentang</a></li>
+                <li><a href="/">Beranda</a></li>
+                <li><a class="active" href="/pages/semua_kategori.html">Kategori</a></li>
+                <li><a href="/pages/semua_produk.html">Produk</a></li>
+                <li><a href="/pages/semua_artikel.html">Artikel</a></li>
             </ul>
             <div class="button-region-nav">
                 <button id="search-button">
-                    <img src="/assets/icon/search.svg"></img>
+                    <i data-lucide="search"></i>
                 </button>
                 <button id="cart-button">
-                    <img src="/assets/icon/shopping-cart.svg"></img>
+                    <i data-lucide="shopping-cart"></i>
                 </button>
                 <button id="auth-button">
-                    <img src="/assets/icon/user-round.svg">
-                        </img>
+                    <i data-lucide="user-round"></i>
                     <span>Masuk</span>
                 </button>
             </div>
@@ -53,25 +56,35 @@
             </div>
         </nav>
         <ul class="navbar-menu-item-mobile">
-            <li><a href="index.html">Beranda</a></li>
+            <li><a href="/">Beranda</a></li>
             <li><a href="/pages/semua_kategori.html">Kategori</a></li>
-            <li><a href="/pages/allProducts.html">Produk</a></li>
-            <li><a href="/pages/allArticles.html">Artikel</a></li>
-            <li><a href="#">Tentang</a></li>
+            <li><a href="/pages/semua_produk.html">Produk</a></li>
+            <li><a href="/pages/semua_artikel.html">Artikel</a></li>
         </ul>
     </header>
     <section>
-        <div class="hero-container">
-            <div class="left-card">
-                <div class="detail-pemesanan-container">
-                    <h3>Detail Pemesanan</h3>
+        <div class="header-pages">
+            <div class="layering"></div>
+            <div class="gradasi"></div>
+            <img src="/assets/content/bg-header-pages.svg" alt="Bg Header Pages" class="imageBg">
+            <img class="imagePeopleRight" src="/assets/content/image-right-kategori.svg" alt="">
+            <img class="imagePeopleLeft" src="/assets/content/image-left-kategori.svg" alt="">
+            <div class="content">
+                <h1>Cari Kategori Produk Favoritmu</h1>
+                <p>Temukan kategori favoritmu sekarang! Mulai dari fashion kekinian, sampai kerajinan handmade yang unik</p>
+                <div class="search">
+                    <label for="search">
+                        <i data-lucide="search"></i>
+                    </label>
+                    <input placeholder="Cari Kategori Favoritmu Berdasarkan Nama..." autocomplete="off" type="text" id="search">
                 </div>
             </div>
-            <div class="right-card">
-    
-            </div>
+        </div>
+        <div class="hero-container">
+            <h1 class="title"><textred>TOP</textred> Kategori</h1>
         </div>
     </section>
-    <script src="/script/script.js"></script>
+    <script src="/script/lucideLoad.js"></script>
+
 </body>
 </html>
