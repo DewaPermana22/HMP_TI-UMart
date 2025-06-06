@@ -16,9 +16,9 @@ function displayPrdukToPay() {
                 <img src="${item.image}" alt="${item.name}>
                 </div>
                 <div class="produk-toPay-info">
-                <h3>Produk 1</h3>
+                <h3>${item.name}</h3>
                 <p>Deskripsi singkat produk 1.</p>
-                <span class="produk-toPay-price">Rp. 100.000</span>
+                <span class="produk-toPay-price">${item.price}</span>
                 </div>
             </div>
     `;      

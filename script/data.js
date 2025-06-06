@@ -6,6 +6,8 @@ const productsData = [
         currentPrice: "Rp. 4.250.999",
         originalPrice: "Rp. 4.999.000",
         discount: "15%",
+        variant : ["Ukuran 64GB", "Ukuran 128GB", "Ukuran 256GB"],
+        color: ["Merah", "Biru", "Hitam", "Putih"],
         rating: 4.0,
         reviewCount: 45
     },
@@ -15,6 +17,8 @@ const productsData = [
         image: "https://images.unsplash.com/photo-1521369909029-2afed882baee?w=300&h=200&fit=crop",
         currentPrice: "Rp. 39.999",
         originalPrice: "Rp. 65.000",
+        variant : ["XL", "L", "M", "S"],
+        color: [],
         discount: "35%",
         rating: 4.5,
         reviewCount: 60
@@ -26,6 +30,8 @@ const productsData = [
         currentPrice: "Rp. 3.999",
         originalPrice: "Rp. 5.499",
         discount: "20%",
+        variant : ["Kecil", "Sedang", "Besar"],
+        color: [],
         rating: 4.2,
         reviewCount: 30
     },
@@ -36,6 +42,8 @@ const productsData = [
         currentPrice: "Rp. 19.999",
         originalPrice: "Rp. 30.768",
         discount: "35%",
+        variant : [],
+        color: [],
         rating: 4.8,
         reviewCount: 45
     },
@@ -46,6 +54,8 @@ const productsData = [
         currentPrice: "Rp. 99.845",
         originalPrice: "Rp. 154.500",
         discount: "35%",
+        variant : ["S", "M", "L", "XL"],
+        color: ["Merah", "Biru", "Hitam", "Putih"],
         rating: 4.0,
         reviewCount: 120
     },
@@ -56,6 +66,8 @@ const productsData = [
         currentPrice: "Rp. 8.999",
         originalPrice: "Rp. 15.999",
         discount: "20%",
+        variant : ["Kecil", "Sedang", "Besar"],
+        color: [],
         rating: 4.6,
         reviewCount: 48
     },
@@ -66,6 +78,8 @@ const productsData = [
         currentPrice: "Rp. 95.999",
         originalPrice: "Rp. 190.000",
         discount: "15%",
+        variant : [],
+        color: ["Merah", "Biru", "Hitam", "Putih"],
         rating: 4.0,
         reviewCount: 89
     },
@@ -76,6 +90,8 @@ const productsData = [
         currentPrice: "Rp. 199.999",
         originalPrice: "Rp. 268.500",
         discount: "35%",
+        variant : ["S", "M", "L", "XL"],
+        color: ["Merah", "Biru", "Hitam", "Putih"],
         rating: 5.0,
         reviewCount: 156
     }
