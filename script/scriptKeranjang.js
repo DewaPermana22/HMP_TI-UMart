@@ -34,7 +34,7 @@ function displayCartItems() {
                         </button>
                     </div>
                     <div class="cart-item-tags">
-                        <span class="tag">Ukuran: Medium</span>
+                        <span class="tag">Variant: ${item.variant ? item.variant : item.color}</span>
                         <span class="tag">${item.price}</span>
                     </div>
                     <div class="cart-item-footer">
@@ -215,17 +215,22 @@ function simpanItemTerpilih() {
             itemsToPay = cart.filter(item => 
                 selectedItems.some(selectedItem => 
                     parseInt(selectedItem.getAttribute('data-id')) === item.id
-                )
+                ),
             );
+
+            const saveSession = {
+            items : itemsToPay,
+            totalAkhir : bayarButton[0].innerText.replace(/[^0-9]/g, ''),
+        }
+
+        console.log('Items to pay:', saveSession);
+        // Simpan ke sessionStorage
+        sessionStorage.setItem('wantToPay', JSON.stringify(saveSession));
+
         } else {
             console.log('Selection mode Error mas!.');
         }
-        console.log('Selection mode:', isSelectionMode);
-        console.log('Selected items count:', selectedItems.length);
-        console.log('Items to pay:', itemsToPay);
         
-        // Simpan ke sessionStorage
-        sessionStorage.setItem('wantToPpay', JSON.stringify(itemsToPay));
         return itemsToPay.length > 0;
     } catch (error) {
         console.error('Error:', error);
@@ -241,10 +246,8 @@ bayarButton.forEach(btn => {
             const success = simpanItemTerpilih();
             
             if (success) {
-                const paymentData = JSON.parse(sessionStorage.getItem('wantToPpay'));
-                console.log('Payment data:', paymentData);
-                
-                if (paymentData?.length > 0) {
+                const paymentData = JSON.parse(sessionStorage.getItem('wantToPay'));
+                if (paymentData && paymentData.items && paymentData.items?.length > 0) {
                     window.location.href = "/pages/payment_pages.html";
                 } else {
                     alert('Tidak ada item yang terpilih untuk dibayar');
@@ -265,13 +268,7 @@ function openModal() {
     const pajak = parseInt(document.getElementById('pajak-display')?.innerText.replace(/[^0-9]/g, '') || 0);
     const ongkir = parseInt(document.getElementById('ongkir-display')?.innerText.replace(/[^0-9]/g, '') || 0);
     const totalAkhir = subtotal + pajak + ongkir;
-
-    const formatRupiah = number => new Intl.NumberFormat('id-ID', {
-        style: 'currency',
-        currency: 'IDR',
-        minimumFractionDigits: 0
-    }).format(number);
-
+    
     modalContent.innerHTML = `
       <div class="subtotal">
       <h4>Subtotal : </h4>

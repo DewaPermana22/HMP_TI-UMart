@@ -130,3 +130,11 @@ function renderArtikels(artikels) {
     const productsHTML = artikels.map(artikel => renderArticles(artikel)).join('');
     gridElement.innerHTML = productsHTML;
 }
+
+const formatRupiah = number => new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    minimumFractionDigits: 0
+}).format(number);
+
+window.formatRupiah = formatRupiah;
