@@ -137,4 +137,54 @@ const formatRupiah = number => new Intl.NumberFormat('id-ID', {
     minimumFractionDigits: 0
 }).format(number);
 
+function showAlert(message, type = 'info') {
+    const alert = document.createElement('div');
+    alert.className = `alert-type ${type}`;
+    const icons = {
+        success: 'check-circle',
+        warning: 'alert-triangle',
+        error: 'x-circle',
+        info: 'info'
+    };
+    alert.innerHTML = `
+        <i data-lucide="${icons[type]}" class="alert-icon"></i>
+        <div class="alert-message">${message}</div>
+        <i data-lucide="x" class="alert-close"></i>
+    `;
+    document.body.appendChild(alert);
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+    const close = alert.querySelector('.alert-close');
+    if (close) {
+        close.addEventListener('click', function() {
+            closeAlert(this);
+        });
+    }
+    const removeWaktu = setTimeout(() => {
+        if (document.body.contains(alert)) {
+            closeAlert(close);
+        }
+    }, 5000);
+    alert.dataset.timer = removeWaktu;
+}
+
+function closeAlert(close) {
+    const alert = close.closest('.alert-type');
+    if (alert && !alert.classList.contains('removing')) {
+        if (alert.dataset.timer) {
+            clearTimeout(parseInt(alert.dataset.timer));
+        }
+        alert.classList.add('removing');
+        setTimeout(() => {
+            if (document.body.contains(alert)) {
+                alert.remove();
+            }
+        }, 300);
+    }
+}
+
+
+
 window.formatRupiah = formatRupiah;
+window.showAlert = showAlert;

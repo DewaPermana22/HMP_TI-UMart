@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UMart - Payment</title>
     <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="/assets/alert.css">
     <link rel="stylesheet" href="/assets/payment.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
@@ -33,9 +34,8 @@
                     <img src="/assets/icon/shopping-cart.svg"></img>
                 </button>
                 <button id="auth-button">
-                    <img src="/assets/icon/user-round.svg">
-                        </img>
-                    <span>Masuk</span>
+                    <i data-lucide="clock"></i>
+                    <span>Riwayat</span>
                 </button>
             </div>
             <div class="navbar-content-mobile">
@@ -98,21 +98,18 @@
                  <div class="container-payment-method">
                     <h3>Metode Pembayaran</h3>
                     <div class="wallet-container">
-                        <div class="wallet-item">
-                            <input type="radio" id="bankTransfer" name="paymentMethod" value="bankTransfer" checked>
-                            <label for="bankTransfer">Transfer Bank</label>
-                        </div>
-                        <div class="wallet-item">
-                            <input type="radio" id="eWallet" name="paymentMethod" value="eWallet">
-                            <label for="eWallet">E-Wallet</label>
-                        </div>
-                        <div class="wallet-item">
-                            <div class="cod-method">
-
+                            <div data-method="E-Wallet" id="EwalletMethod" class="method">
+                                <img src="/assets/icon/wallet-solid.svg" alt="COD">
+                                <label for="CodMethod">E-Wallet</label>
                             </div>
-                            <input type="radio" id="cashOnDelivery" name="paymentMethod" value="cashOnDelivery">
-                            <label for="cashOnDelivery">Cash on Delivery</label>
-                        </div>
+                            <div data-method="Transfer Bank" id="TransferMethod" class="method">
+                                <img src="/assets/icon/money-bill-transfer-solid.svg" alt="COD">
+                                <label for="TransferMethod">Transfer Bank</label>
+                            </div>
+                            <div data-method="Cash on Delivery (COD)" id="CodMethod" class="method">
+                                <img src="/assets/icon/hand-holding-dollar-solid.svg" alt="COD">
+                                <label for="CodMethod">Cash on Delivery</label>
+                            </div>
                     </div>
                  </div>
             </div>
@@ -125,15 +122,16 @@
                 <div class="detail-payment-container">
                     <div class="info-payment">
                         <h3>Informasi Pembayaran</h3>
-                        <p>Metode Pembayaran: <span id="paymentMethod">Transfer Bank</span></p>
-                        <p>Total Bayar: <span id="totalBayar">Rp. 0</span></p>
+                        <p>Metode Pembayaran : <span id="paymentMethod"></span></p>
+                        <p>Total Bayar : <span id="totalBayar">Rp. 0</span></p>
                         
                     </div>
-                    <button id="checkOut">Chek Out</button>
+                    <button onclick="checkOut()" id="checkOut">Chek Out</button>
                 </div>
             </div>
         </div>
     </section>
+    <script src="/script/lucideLoad.js"></script>
     <script src="/script/script.js"></script>
     <script src="/script/utils.js"></script>
     <script src="/script/scriptPayment.js"></script>

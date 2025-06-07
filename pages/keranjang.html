@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="/assets/style.css">
     <link rel="stylesheet" href="/assets/keranjang.css">
+    <link rel="stylesheet" href="/assets/alert.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UMart</title>
@@ -31,10 +32,9 @@
                 <button id="cart-button">
                     <img src="/assets/icon/shopping-cart.svg"></img>
                 </button>
-                <button class="auth-button">
-                    <img src="/assets/icon/user-round.svg">
-                        </img>
-                    <span>Masuk</span>
+                <button id="auth-button">
+                    <i data-lucide="clock"></i>
+                    <span>Riwayat</span>
                 </button>
             </div>
             <div class="navbar-content-mobile">
@@ -45,9 +45,8 @@
                     <button class="cart-button">
                         <img src="/assets/icon/shopping-cart.svg"></img>
                     </button>
-                    <button class="auth-button">
-                        <img src="/assets/icon/user-round.svg">
-                        </img>
+                    <button id="auth-button">
+                        <i data-lucide="user-round"></i>
                     </button>
                 </div>
                 <button class="hamburger-menu" id="ikon_menu">
@@ -122,6 +121,7 @@
         <button id="btnModalGotoPay" class="btn btn-primary">Lanjut ke Pembayaran</button>
     </div>
 </div>
+    <script src="/script/lucideLoad.js"></script>
     <script src="/script/utils.js"></script>
     <script src="/script/scriptKeranjang.js"></script>
     <script src="/script/script.js"></script>

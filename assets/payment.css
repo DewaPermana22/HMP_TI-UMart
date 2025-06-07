@@ -58,6 +58,7 @@
     background-color: var(--gray-100);
     border-radius: 10px;
     margin-bottom: 20px;
+    height: fit-content;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -143,9 +144,11 @@
 
 .wallet-container{
     display: flex;
+    gap: 10px;
 }
 
 #checkOut{
+    margin-top: 30px;
     border: none;
     background-color: var(--red);
     padding: 10px;
@@ -155,4 +158,42 @@
     font-weight: 500;
     cursor: pointer;
     border-radius: 5px;
+}
+
+.method {
+    width: 100%;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--gray-100);
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.method.selected {
+    border: 2px solid var(--red);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.method:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.method img{
+    width: 45px;
+    height : auto;
+    margin-right: 10px;
+}
+
+.info-payment p{
+    font-size: 15px;
+    color: var(--gray);
 }

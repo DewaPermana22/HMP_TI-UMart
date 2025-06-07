@@ -136,7 +136,7 @@ header {
 }
 
 #auth-button {
-  width: 90px;
+  width: fit-content;
   padding: 5px;
   display: flex;
   align-items: center;
@@ -145,6 +145,7 @@ header {
   font-size: 14px;
   padding-right: 10px;
   height: 30px;
+  gap: 5px;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   color: white;
@@ -1185,20 +1186,22 @@ header {
   gap: 10px;
 }
 
-.variant-option{
-  padding: 10px;
-  font-size: 14px;
-  width: 60px;
-  text-align: center;
-  border-radius: 8px;
-  background-color: var(--gray-100);
-  cursor: pointer;
-  transition: all 0.3s ease;
+.variant-option {
+    padding: 10px;
+    font-size: 14px;
+    width: 60px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: var(--gray-100);
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
 }
 
-.variant-option.selected{
-  border: 2px solid var(--red);
-  transform: scale(1.05);
+.variant-option.selected {
+    border: 2px solid var(--red);
+    transform: scale(1.05);
+    background-color: #fef2f2;
 }
 
 .color-container{

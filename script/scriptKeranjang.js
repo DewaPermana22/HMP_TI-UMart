@@ -250,10 +250,10 @@ bayarButton.forEach(btn => {
                 if (paymentData && paymentData.items && paymentData.items?.length > 0) {
                     window.location.href = "/pages/payment_pages.html";
                 } else {
-                    alert('Tidak ada item yang terpilih untuk dibayar');
+                    showAlert('Tidak ada item yang terpilih untuk dibayar', 'warning');
                 }
             } else {
-                alert('Gagal memproses pembayaran. Silakan coba lagi.');
+                showAlert('Gagal memproses pembayaran. Silakan coba lagi.', 'error');
             }
         }
     });

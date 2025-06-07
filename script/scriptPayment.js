@@ -120,5 +120,96 @@ document.addEventListener('DOMContentLoaded', () => {
     displayPrdukToPay();
 });
 
-// Region Checkout Logic
+let chosenMethod = "";
 
+document.querySelectorAll('.method').forEach(method => {
+    method.addEventListener('click', () => {
+        chosenMethod = selectPaymentMethod(method.id);
+        document.getElementById('paymentMethod').innerText = chosenMethod || '';
+    });
+});
+
+
+
+// Region Checkout Logic
+function selectPaymentMethod(method) {
+    const paymentMethods = document.querySelectorAll('.method');
+    paymentMethods.forEach(m => m.classList.remove('selected'));
+    
+    let selectedMethod = ""; 
+
+    const domMethod = document.getElementById(method);
+    if (domMethod) {
+        domMethod.classList.add('selected');
+        selectedMethod = domMethod.getAttribute('data-method') || method;
+    }
+
+    return selectedMethod;
+}
+
+function checkOut() {
+
+    //Validasi info user
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const address = document.getElementById('address').value.trim();
+    if (!name || !phone || !address) {
+       showAlert('Harap lengkapi semua informasi sebelum melanjutkan pembayaran.', 'error');
+        return;
+    }
+
+    if (name.length < 3) {
+        alert('Nama harus terdiri dari minimal 3 karakter.');
+        return;
+    }
+
+    const regexPhone = /^\+?[0-9]{10,15}$/;
+    if (!regexPhone.test(phone)) {
+        showAlert('Nomor telepon tidak valid. Harap masukkan nomor telepon yang benar.', 'warning');
+        return;
+    }
+
+    if (address.length < 10) {
+        showAlert('Alamat harus terdiri dari minimal 10 karakter.', 'warning');
+        return;
+    }
+
+    if (chosenMethod === "") {
+        showAlert('Silakan pilih metode pembayaran sebelum melanjutkan.', 'warning');
+        return;
+        
+    }
+
+    if (chosenMethod === "Cash on Delivery (COD)") {
+
+        const transactionData = {
+            nama_pembeli : name,
+            no_telepon : phone,
+            alamat : address,
+            catatan : document.getElementById('details').value.trim() || '-',
+            metode_pembayaran : chosenMethod,
+            produk : JSON.parse(sessionStorage.getItem('wantToPay')),
+        }
+
+        console.log('Data transaksi:', transactionData);
+
+        // Ambil transaksi lama (kalau belum ada, buat array kosong)
+let allTransactions = JSON.parse(localStorage.getItem('TransactionData')) || [];
+
+// Tambahkan transaksi baru
+allTransactions.push(transactionData);
+
+// Simpan kembali ke localStorage
+localStorage.setItem('TransactionData', JSON.stringify(allTransactions));
+
+
+        //Simpan data transaksi ke LocalStorage
+
+        showAlert('Pesanan Anda akan segera diproses. Silahkan Cek halaman riwayat pembelian untuk informasi lebih lanjut.', 'success');
+    }
+}
+
+
+function setTransaction(){
+
+}

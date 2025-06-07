@@ -38,12 +38,12 @@ cartButtons.forEach((button) => {
 
 const authButton = document.getElementById("auth-button");
 authButton.addEventListener("click", () => {
-  alert("Fitur ini segera tersedia!");
+  window.location.href = "/pages/riwayat_pembelian.html";
 });
 
 const authButtonMobile = document.getElementById("auth");
 authButtonMobile.addEventListener("click", () => {
-  alert("Fitur ini segera tersedia!");
+  window.location.href = "/pages/riwayat_pembelian.html";
 });
 
 document.addEventListener("DOMContentLoaded", function () {

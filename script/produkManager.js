@@ -110,7 +110,6 @@ function openModalVariant(productId) {
     }
 
   } else {
-    // PERBAIKAN: Jika tidak ada varian/warna, langsung tambah ke cart
     addToCart(productId);
   }
 }
@@ -172,7 +171,7 @@ function addToCart(productId, selectedColor = null, selectedVariant = null) {
       ? `${product.name} (${[selectedColor, selectedVariant].filter(Boolean).join(", ")})`
       : product.name;
   
-  alert(`${productName} ditambahkan ke keranjang! Silahkan cek keranjang`);
+  showAlert(`${productName} ditambahkan ke keranjang! Silahkan cek keranjang`, 'success');
 }
 
 function closeModalVariant() {
