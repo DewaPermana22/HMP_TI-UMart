@@ -193,22 +193,14 @@ textred {
   position: relative;
 }
 .header-pages .layering {
-  /* background: var(--red); */
-  background: black;
+  background: var(--red);
   width: 100%;
   height: 100%;
   position: absolute;
   z-index: 2;
-  opacity: 70%;
+  opacity: 90%;
 }
-.header-pages .gradasi {
-  position: absolute;
-  bottom: 0;
-  z-index: 5;
-  width: 100%;
-  height: 60px;
-  background: linear-gradient(to top, var(--bg-color), rgba(0,0,0,0.7), transparent);
-}
+
 .header-pages .imageBg {
   width: 100%;
   height: 100%;
@@ -258,25 +250,11 @@ textred {
 .header-pages .content .search label {
   margin-top: 3px;
 }
-.header-pages .imagePeopleRight,
-.header-pages .imagePeopleLeft {
-  position: absolute;
-  z-index: 3;
-  width: 350px;
-}
-.header-pages .imagePeopleRight {
-  right: -10px;
-  bottom: 0;
-}
-.header-pages .imagePeopleLeft {
-  left: -40px;
-  bottom: 0;
-}
 
 .hero-container {
   padding: 20px 30px;
 }
 .hero-container .title {
   font-size: 35px;
-  font-weight: 800;
+  font-weight: 700;
 }

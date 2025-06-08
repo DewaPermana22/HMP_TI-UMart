@@ -47,8 +47,7 @@
                         <img src="/assets/icon/shopping-cart.svg"></img>
                     </button>
                     <button id="auth">
-                        <img src="/assets/icon/user-round.svg">
-                        </img>
+                        <i data-lucide="clock"></i>
                     </button>
                 </div>
                 <button class="hamburger-menu" id="ikon_menu">
@@ -126,11 +125,35 @@
                         <p>Total Bayar : <span id="totalBayar">Rp. 0</span></p>
                         
                     </div>
-                    <button onclick="checkOut()" id="checkOut">Chek Out</button>
+                    <button onclick="openModal()" id="checkOut">Chek Out</button>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modal untuk metode pembayaran bank / ewallet -->
+    <div id="modalOverlay" class="modal-overlay">
+    <div class="modal" id="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+        <div class="modal-title" id="modalTitle"></div>
+        <button class="modal-close" onclick="tutupModal()">&times;</button>
+    </div>
+    <div class="modal-content">
+        <div class="container-main-content-modal">
+            <div class="wrapper-qr">
+                <img id="prevBuktiTransaksi" src="/assets/content/qr-dummy.png" alt="qr-code">
+            </div>
+            <p id="info-allert">silahkan scan kode QR di atas, untuk melakukan pembayaran</p>
+            <p class="info-for-save-payment">*simpan bukti pembayaran, lalu unggah bukti pembayaran agar pesanan anda dapat di proses</p>
+        </div>
+    </div>
+    <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="tutupModal()">Tutup</button>
+        <button id="saveQr" data-action="forQR" class="btn btn-secondary">Simpan QR Code</button>
+        <button id="uploadBukti" class="btn btn-primary">Unggah Bukti</button>
+    </div>
+</div>
+
     <script src="/script/lucideLoad.js"></script>
     <script src="/script/script.js"></script>
     <script src="/script/utils.js"></script>

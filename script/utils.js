@@ -19,6 +19,28 @@ function generateStars(rating) {
     return starsHTML;
 }
 
+function renderProductsToGrid(products, containerId, loadingId, emptyId) {
+    const loadingElement = document.getElementById(loadingId);
+    const gridElement = document.getElementById(containerId);
+    const emptyElement = document.getElementById(emptyId);
+    
+    // Sembunyikan loading
+    if (loadingElement) loadingElement.style.display = 'none';
+    
+    // Handle jika tidak ada produk
+    if (products.length === 0) {
+        if (gridElement) gridElement.style.display = 'none';
+        if (emptyElement) emptyElement.style.display = 'flex';
+        return;
+    }
+
+    // Tampilkan produk
+    if (emptyElement) emptyElement.style.display = 'none';
+    if (gridElement) {
+        gridElement.style.display = 'grid';
+        gridElement.innerHTML = products.map(product => renderProduct(product)).join('');
+    }
+}
 
 function renderProduct(product) {
     return `
@@ -51,27 +73,6 @@ function renderProduct(product) {
         </div>
     `;
 }
-
-function renderProducts(products) {
-    const loadingElement = document.getElementById('products-loading');
-    const gridElement = document.getElementById('products-grid');
-    const emptyElement = document.getElementById('products-empty');
-    
-    if (loadingElement) loadingElement.style.display = 'none';
-    
-    if (products.length === 0) {
-        gridElement.style.display = 'none';
-        emptyElement.style.display = 'flex';
-        return;
-    }
-
-    emptyElement.style.display = 'none';
-    gridElement.style.display = 'grid';
-    
-    const productsHTML = products.map(product => renderProduct(product)).join('');
-    gridElement.innerHTML = productsHTML;
-}
-
 
 // Render Artikel
 function renderArticles(artikel){
@@ -184,7 +185,17 @@ function closeAlert(close) {
     }
 }
 
+function formatTanggal(date) {
+  const d = new Date(date);
+  const hari = String(d.getDate()).padStart(2, '0');
+  const bulan = String(d.getMonth() + 1).padStart(2, '0');
+  const tahun = d.getFullYear();
+  return `${hari}/${bulan}/${tahun}`;
+}
+
 
 
 window.formatRupiah = formatRupiah;
 window.showAlert = showAlert;
+window.formatTanggal = formatTanggal;
+window.renderProductsToGrid = renderProductsToGrid;

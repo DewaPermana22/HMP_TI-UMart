@@ -1,15 +1,39 @@
 function loadProducts() {
-  const loadingElement = document.getElementById("products-loading");
-  const gridElement = document.getElementById("products-grid");
-  const emptyElement = document.getElementById("products-empty");
+    const loadingElement = document.getElementById("products-loading");
+    const gridElement = document.getElementById("products-grid");
+    const emptyElement = document.getElementById("products-empty");
 
-  if (loadingElement) loadingElement.style.display = "flex";
-  if (gridElement) gridElement.style.display = "none";
-  if (emptyElement) emptyElement.style.display = "none";
+    if (loadingElement) loadingElement.style.display = "flex";
+    if (gridElement) gridElement.style.display = "none";
+    if (emptyElement) emptyElement.style.display = "none";
 
-  setTimeout(() => {
-    renderProducts(productsData);
-  }, 500);
+    setTimeout(() => {
+        renderProductsToGrid(
+            productsData.slice(0, 8), 
+            "products-grid", 
+            "products-loading", 
+            "products-empty"
+        );
+    }, 500);
+}
+
+function renderAllProduks() {
+    const loadingElement = document.getElementById("products-loading-all");
+    const gridElement = document.getElementById("products-grid-all");
+    const emptyElement = document.getElementById("products-empty-all");
+
+    if (loadingElement) loadingElement.style.display = "flex";
+    if (gridElement) gridElement.style.display = "none";
+    if (emptyElement) emptyElement.style.display = "none";
+
+    setTimeout(() => {
+        renderProductsToGrid(
+            productsData,
+            "products-grid-all",
+            "products-loading-all", 
+            "products-empty-all"
+        );
+    }, 500);
 }
 
 function openModalVariant(productId) {
@@ -160,7 +184,6 @@ function addToCart(productId, selectedColor = null, selectedVariant = null) {
 
   localStorage.setItem("cart", JSON.stringify(cart));
 
-  // PERBAIKAN: Tutup modal setelah berhasil menambah ke cart
   const modal = document.getElementById("modal-variant");
   if (modal) {
     modal.classList.remove("active");
@@ -188,12 +211,23 @@ function buyNow(productId) {
 }
 
 function searchProducts(query) {
-  const filteredProducts = productsData.filter((product) =>
-    product.name.toLowerCase().includes(query.toLowerCase())
-  );
-  renderProducts(filteredProducts);
-}
+    const loadingElement = document.getElementById("products-loading-all");
+    if (loadingElement) loadingElement.style.display = 'flex';
 
+    const filteredProducts = productsData.filter(product => 
+        product.name.toLowerCase().includes(query.toLowerCase()) ||
+        (product.category && product.category.toLowerCase().includes(query.toLowerCase()))
+    );
+
+    setTimeout(() => {
+        renderProductsToGrid(
+            filteredProducts,
+            "products-grid-all",
+            "products-loading-all",
+            "products-empty-all"
+        );
+    }, 300);
+}
 function sortProducts(sortBy) {
   let sortedProducts = [...productsData];
 
@@ -227,6 +261,7 @@ function sortProducts(sortBy) {
 
 // Export fungsi
 window.ProdukManager = {
+  renderAllProduks,
   loadProducts,
   searchProducts,
   sortProducts,

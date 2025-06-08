@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UMart - Semua Artikel</title>
+    <title>UMart - Semua Produk</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/semua_produk.css">
+    
     <link rel="icon" type="image/png" href="/assets/UmMart - Logo_OnlyBag.svg" />
 </head>
 <body>
@@ -31,8 +32,8 @@
                     <i data-lucide="shopping-cart"></i>
                 </button>
                 <button id="auth-button">
-                    <i data-lucide="user-round"></i>
-                    <span>Masuk</span>
+                    <i data-lucide="clock"></i>
+                    <span>Riwayat</span>
                 </button>
             </div>
             <div class="navbar-content-mobile">
@@ -44,8 +45,7 @@
                         <img src="/assets/icon/shopping-cart.svg"></img>
                     </button>
                     <button id="auth">
-                        <img src="/assets/icon/user-round.svg">
-                        </img>
+                        <i data-lucide="clock"></i>
                     </button>
                 </div>
                 <button class="hamburger-menu" id="ikon_menu">
@@ -65,10 +65,9 @@
     <section>
         <div class="header-pages">
             <div class="layering"></div>
-            <div class="gradasi"></div>
             <img src="/assets/content/bg-header-pages.svg" alt="Bg Header Pages" class="imageBg">
-            <img class="imagePeopleRight" src="/assets/content/image-right-kategori.svg" alt="">
-            <img class="imagePeopleLeft" src="/assets/content/image-left-kategori.svg" alt="">
+            <!-- <img class="imagePeopleRight" src="/assets/content/right-produk-image.svg" alt="right-content">
+            <img class="imagePeopleLeft" src="/assets/content/left-produk-image.svg" alt="left-content"> -->
             <div class="content">
                 <h1>Temukan Produk Favoritmu Disini</h1>
                 <p>Temukan Beragam Produk UMKM Sekarang! Lestarikan Produk Lokal Dan Jayakan Ekonomi Negri Kita</p>
@@ -87,10 +86,115 @@
             </div>
         </div>
         <div class="hero-container">
-            <h1 class="title"><textred>TOP</textred> Produk</h1>
+            <h1 class="title"><textred>Semua</textred> Produk</h1>
+
+            <div class="products-grid-container">
+            <div id="products-loading-all" class="products-loading">
+                <i data-lucide="loader-2"></i>
+                <p>Memuat produk...</p>
+            </div>
+            <div id="products-grid-all" class="products-grid">
+                <!-- nanti listnya produk di munculin di sini -->
+            </div>
+            <div id="products-empty-all" class="products-empty" style="display: none;">
+                <i data-lucide="package-x"></i>
+                <p>Tidak ada produk ditemukan</p>
+            </div>
+
+        </div>
         </div>
     </section>
-    <script src="/script/lucideLoad.js"></script>
 
+    <footer class="footer-container">
+        <div class="top-content-footer">
+            <div class="footer-logo-desc">
+                <div class="logo-footer">
+                    <a href="#">
+                        <img src="/assets/UmMart - Logo.svg" alt="logo UMart">
+                    </a>
+                </div>
+                <p>UMart adalah sebuah platform marketplace digital yang dirancang khusus untuk membantu pelaku Usaha Mikro, Kecil, dan Menengah (UMKM) di Indonesia dalam memasarkan produknya secara lebih luas, mudah, dan profesional. dan semoga dengan adanya umart bisa mendukung umkm lebih maju lagi</p>
+            </div>
+            <div class="top-kategori-footer">
+                <h3>Kategori Populer</h3>
+                <ul>
+                    <li>Fashion</li>
+                    <li>Elektronik</li>
+                    <li>Kerajinan</li>
+                    <li>Produk Digital</li>
+                    <li>Perhiasan</li>
+                </ul>
+            </div>
+            <div class="top-toko-footer">
+                <h3>Toko Populer</h3>
+                <ul>
+                    <li>Gadget Malang</li>
+                    <li>Craft ID</li>
+                    <li>Shadewa Group</li>
+                    <li>FK Technology</li>
+                    <li>Briliant IND</li>
+                </ul>
+            </div>
+            <div class="kontak-kami">
+                <h3>Kontak Kami</h3>
+                <ul>
+                    <li><div class="ikon-footer">
+                        <img src="/assets/icon/phone-icn.svg" alt="phone">
+                    </div>
+                    (0886) 3378 888</li>
+                    <li><div class="ikon-footer">
+                        <img src="/assets/icon/mail-icn.svg" alt="mail">
+                    </div>
+                    umartofficial@yahoo.com</li>
+                    <li><div class="ikon-footer">
+                        <img src="/assets/icon/map-icn.svg" alt="location">
+                    </div>
+                    Jln. Raya No.20 Umbulsari, <br>
+                    Jember, Jawa Timur, ID
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-content-footer">
+            <h2>Ikuti Kami Di</h2>
+            <div class="sosial-icon">
+                <div><img src="/assets/icon/facebook.svg" alt=""></div>
+                <div><img src="/assets/icon/tweeter.svg" alt=""></div>
+                <div><img src="/assets/icon/linkedin.svg" alt=""></div>
+                <div><img src="/assets/icon/instagram.svg" alt=""></div>
+                <div><img src="/assets/icon/youtube.svg" alt=""></div>
+            </div>
+            <div class="border-footer"></div>
+            &copy; UMKM Market Indonesia 2025 all right reserved
+        </div>
+       </footer>
+
+       <!-- Modal Pilih Varian -->
+         <!-- <div id="modal-variant" class="modal-variant-ovrlay">
+            <div class="modal">
+                <div class="modal-header">
+                    <h2>Pilih Varian Produk</h2>
+                    <button onclick="closeModalVariant()" class="close-modal" id="close-modal">
+                        <i data-lucide="x"></i>
+                    </button>
+                </div>
+                <div id="modalContent" class="modal-content">
+                    <div class="variant-container">
+                    </div>
+                    <div class="color-container">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="add-to-cart">Tambahkan ke Keranjang</button>
+                    <button onclick="closeModalVariant()">Batal</button>
+                </div>
+            </div>
+        </div> -->
+    <script src="/script/lucideLoad.js"></script>
+    <script src="/script/data.js"></script>
+    <script src="/script/utils.js"></script>
+    <script src="/script/produkManager.js"></script>
+    <script src="/script/script.js"></script>
+    <script src="/script/semuaProduk.js"></script>
 </body>
 </html>

@@ -78,95 +78,29 @@
                         </tr>
                     </thead>
                     <tbody id="tableBody">
-                        <tr>
-                            <td class="buyer-info">Ahmad Rizki</td>
-                            <td class="address">Jl. Merdeka No. 123, Sumbersari, Jember</td>
-                            <td class="phone">+62 812-3456-7890</td>
-                            <td class="notes">Kirim sore hari</td>
-                            <td class="date">08/06/2025</td>
-                            <td>
-                                <div class="payment-method">
-                                    <span class="method-badge method-transfer">Transfer Bank</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="upload-container">
-                                        <label class="upload-btn">
-                                            <svg class="upload-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
-                                            </svg>
-                                            Upload
-                                            <input type="file" accept="image/*" onchange="handleFileUpload(this)">
-                                        </label>
-                                        <span class="file-name" style="display: none;"></span>
-                                    </div>
-                            </td>
-                            <td>
-                                <span class="status status-completed">
-                                    <span class="status-dot"></span>
-                                    Selesai
-                                </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="buyer-info">Siti Nurhaliza</td>
-                            <td class="address">Jl. Diponegoro No. 45, Kaliwates, Jember</td>
-                            <td class="phone">+62 856-7890-1234</td>
-                            <td class="notes">-</td>
-                            <td class="date">07/06/2025</td>
-                            <td>
-                                <div class="payment-method">
-                                    <span class="method-badge method-cash">Cash</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="upload-container">
-                                        <label class="upload-btn">
-                                            <svg class="upload-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
-                                            </svg>
-                                            Upload
-                                            <input type="file" accept="image/*" onchange="handleFileUpload(this)">
-                                        </label>
-                                        <span class="file-name" style="display: none;"></span>
-                                    </div>
-                            </td>
-                            <td>
-                                <span class="status status-pending">
-                                    <span class="status-dot"></span>
-                                    Pending
-                                </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="buyer-info">Budi Santoso</td>
-                            <td class="address">Jl. Sumatera No. 78, Patrang, Jember</td>
-                            <td class="phone">+62 821-9876-5432</td>
-                            <td class="notes">Barang fragile, hati-hati</td>
-                            <td class="date">06/06/2025</td>
-                            <td>
-                                <div class="payment-method">
-                                    <span class="method-badge method-ewallet">E-Wallet</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="upload-container">
-                                        <span>-</span>
-                                    </div>
-                            </td>
-                            <td>
-                                <span class="status status-cancelled">
-                                    <span class="status-dot"></span>
-                                    Dibatalkan
-                                </span>
-                            </td>
-                        </tr>
+                        <!-- Data akan diisi oleh script -->
                     </tbody>
                 </table>
             </div>
         </div>
         </div>
     </section>
+
+    <div id="modalOverlay" class="modal-overlay">
+    <div class="modal" id="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+        <div class="modal-title" id="modalTitle">Detail Transaksi</div>
+        <button class="modal-close" onclick="tutupModal()">&times;</button>
+    </div>
+    <div class="modal-content">
+        <!-- render konten detail transaksi -->
+    </div>
+    <div class="modal-actions">
+        <button class="btn btn-secondary">Batalkan</button>
+        <button class="btn btn-primary">Tandai Selesai</button>
+    </div>
+    </div>
+    </div>
     <script src="/script/script.js"></script>
     <script src="/script/utils.js"></script>
     <script src="/script/scriptHistory.js"></script>

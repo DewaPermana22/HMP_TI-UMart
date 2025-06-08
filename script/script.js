@@ -48,37 +48,8 @@ authButtonMobile.addEventListener("click", () => {
 
 document.addEventListener("DOMContentLoaded", function () {
   loadProducts();
+  renderAllProduks();
   loadArtikels();
-
-  // const searchInput = document.getElementById("search-product-input");
-  // const searchBtn = document.getElementById("search-product-btn");
-  // const sortSelect = document.getElementById("sort-product-select");
-
-  // // fungsi buat cari ya! kakak ganteng & cantik :3
-  // if (searchBtn) {
-  //   searchBtn.addEventListener("click", function () {
-  //     const query = searchInput ? searchInput.value : "";
-  //     searchProducts(query);
-  //   });
-  // }
-
-  // // fungsi buat search lalu di enter ya! kakak ganteng & cantik :3
-  // if (searchInput) {
-  //   searchInput.addEventListener("keypress", function (e) {
-  //     if (e.key === "Enter") {
-  //       const query = searchInput.value;
-  //       searchProducts(query);
-  //     }
-  //   });
-  // }
-
-  // // fungsi buat sort ya! kakak ganteng & cantik :3
-  // if (sortSelect) {
-  //   sortSelect.addEventListener("change", function () {
-  //     const sortBy = sortSelect.value;
-  //     sortProducts(sortBy);
-  //   });
-  // }
 
   // Fungsi buat di card
   function animateCounter(element, target, suffix, duration = 2000) {
