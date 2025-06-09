@@ -106,11 +106,45 @@ function handleCODPayment() {
   );
 
   if (saveTransaction(transactionData)) {
-    showAlert(
-      "Pesanan Anda akan segera diproses. Silahkan Cek halaman riwayat pembelian untuk informasi lebih lanjut.",
-      "success"
-    );
-    sessionStorage.removeItem("wantToPay");
+    const itemToDeleteStr = sessionStorage.getItem("wantToPay");
+
+    if (itemToDeleteStr) {
+      try {
+        // Parse data wantToPay
+        const itemToDelete = JSON.parse(itemToDeleteStr);
+
+        // Ambil cart dari localStorage
+        const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+        if (itemToDelete.items && Array.isArray(itemToDelete.items)) {
+          itemToDelete.items.forEach((paymentItem) => {
+            const index = cartItems.findIndex(
+              (cartItem) => cartItem.uniqueId === paymentItem.uniqueId
+            );
+
+            if (index !== -1) {
+              cartItems.splice(index, 1);
+            }
+          });
+
+          localStorage.setItem("cart", JSON.stringify(cartItems));
+        }
+
+        sessionStorage.removeItem("wantToPay");
+
+        showAlert(
+          "Transaksi berhasil disimpan dan item telah dihapus dari keranjang!",
+          "success"
+        );
+        setTimeout(() => {
+          window.location.href = "/pages/riwayat_pembelian.html";
+        }, 1500);
+      } catch (error) {
+        console.error("Error parsing wantToPay data:", error);
+      }
+    } else {
+      console.log("Tidak ada data wantToPay yang ditemukan");
+    }
   } else {
     showAlert("Terjadi kesalahan saat menyimpan transaksi.", "error");
   }
@@ -368,4 +402,26 @@ async function saveQrImage() {
       resolve(false);
     }
   });
+}
+
+function handleCheckout() {
+  if (!chosenMethod) {
+    showAlert("Harap pilih metode pembayaran terlebih dahulu.", "warning");
+    return;
+  }
+
+  switch (chosenMethod) {
+    case "Cash on Delivery (COD)":
+      handleCODPayment();
+      break;
+    case "Transfer Bank":
+      handleBankTransferPayment();
+      break;
+    case "E-Wallet":
+      handleEWalletPayment();
+      break;
+    default:
+      showAlert("Metode pembayaran tidak valid.", "error");
+      break;
+  }
 }

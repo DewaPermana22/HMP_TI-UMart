@@ -15,7 +15,7 @@
     <header class="header">
         <nav class="navbar-container">
             <a href="/" class="logo">
-                <img src="/assets/UmMart - Logo_White.svg" alt="logo-aplikasi">
+                <img id="Logo" src="/assets/UmMart - Logo_White.svg" alt="logo-aplikasi">
             </a>
             <ul class="navbar-menu-item">
                 <li><a href="/">Beranda</a></li>
@@ -31,21 +31,20 @@
                     <i data-lucide="shopping-cart"></i>
                 </button>
                 <button id="auth-button">
-                    <i data-lucide="user-round"></i>
-                    <span>Masuk</span>
+                    <i data-lucide="clock"></i>
+                    <span>Riwayat</span>
                 </button>
             </div>
             <div class="navbar-content-mobile">
                 <div class="button-region-nav-mobile">
                     <button id="search-button">
-                        <img src="/assets/icon/search.svg"></img>
+                         <i data-lucide="search"></i>
                     </button>
                     <button id="cart-button">
-                        <img src="/assets/icon/shopping-cart.svg"></img>
+                        <i data-lucide="shopping-cart"></i>
                     </button>
                     <button id="auth">
-                        <img src="/assets/icon/user-round.svg">
-                        </img>
+                        <i data-lucide="clock"></i>
                     </button>
                 </div>
                 <button class="hamburger-menu" id="ikon_menu">
@@ -85,6 +84,6 @@
         </div>
     </section>
     <script src="/script/lucideLoad.js"></script>
-
+    <script src="/script/handleTransparentNavbar.js"></script>
 </body>
 </html>

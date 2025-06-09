@@ -112,12 +112,17 @@ header {
   list-style: none;
 }
 
+#home-button,
 #search-button,
 #cart-button {
   border-radius: 100%;
   padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   width: 30px;
+  color: white;
   height: 30px;
   background-color: black;
 }

@@ -138,7 +138,7 @@ function openModalVariant(productId) {
   }
 }
 
-function addToCart(productId, selectedColor = null, selectedVariant = null) {
+function addToCart(productId, selectedColor = null, selectedVariant = null, quantity = null) {
   const product = productsData.find((p) => p.id === productId);
   
   if (!product) {
@@ -176,7 +176,7 @@ function addToCart(productId, selectedColor = null, selectedVariant = null) {
       name: product.name,
       price: product.currentPrice,
       image: product.image,
-      quantity: 1,
+      quantity: quantity ? quantity : 1,
       color: selectedColor,
       variant: selectedVariant,
     });
@@ -204,10 +204,14 @@ function closeModalVariant() {
   }
 }
 
-function buyNow(productId) {
-  const product = productsData.find((p) => p.id === productId);
-  console.log("Buy now:", product.name);
-  alert(`Membeli ${product.name} sekarang!`);
+function navigateToProductDetail(productId) {
+  const productExists = productsData.some(p => p.id === productId);
+  if (productExists) {
+    window.location.href = `/pages/produk_detail.html?id=${productId}`;
+  } else {
+    console.error('Produk tidak ditemukan');
+    window.location.href = '/pages/404.html';
+  }
 }
 
 function searchProducts(query) {
@@ -259,12 +263,11 @@ function sortProducts(sortBy) {
   renderProducts(sortedProducts);
 }
 
-// Export fungsi
 window.ProdukManager = {
   renderAllProduks,
   loadProducts,
   searchProducts,
   sortProducts,
   addToCart,
-  buyNow,
+  navigateToProductDetail,
 };

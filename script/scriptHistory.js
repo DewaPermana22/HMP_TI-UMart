@@ -1,6 +1,10 @@
 const ovrlay = document.getElementById("modalOverlay");
 const modal = document.getElementById("modal");
 
+document.getElementById('home-button').addEventListener('click', () => {
+  window.location.href = '/index.html';
+})
+
 function renderTransaction(transaction) {
   return `
         <tr class="tableRow" data-id="${transaction.id}">

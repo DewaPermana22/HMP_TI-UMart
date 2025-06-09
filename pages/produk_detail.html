@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMart - Detail Produk</title>
+    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="/assets/alert.css">
+    <link rel="stylesheet" href="/assets/produk_detail.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" href="/assets/UmMart - Logo_OnlyBag.svg" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar-container">
+            <div class="logo">
+                <img src="/assets/UmMart - Logo.svg" alt="logo-aplikasi">
+            </div>
+            <ul class="navbar-menu-item">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="/pages/semua_kategori.html">Kategori</a></li>
+                <li><a href="/pages/semua_produk.html">Produk</a></li>
+                <li><a href="/pages/semua_artikel.html">Artikel</a></li>
+                <li><a href="#">Tentang</a></li>
+            </ul>
+            <div class="button-region-nav">
+                <button id="search-button">
+                     <i data-lucide="search"></i>
+                </button>
+                <button id="cart-button">
+                    <img src="/assets/icon/shopping-cart.svg"></img>
+                </button>
+                <button id="auth-button">
+                    <i data-lucide="clock"></i>
+                    <span>Riwayat</span>
+                </button>
+            </div>
+            <div class="navbar-content-mobile">
+                <div class="button-region-nav-mobile">
+                    <button id="search-button">
+                        <i data-lucide="search"></i>
+                    </button>
+                    <button id="cart-button">
+                        <img src="/assets/icon/shopping-cart.svg"></img>
+                    </button>
+                    <button id="auth">
+                        <i data-lucide="clock"></i>
+                    </button>
+                </div>
+                <button class="hamburger-menu" id="ikon_menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </nav>
+        <ul class="navbar-menu-item-mobile">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="/pages/semua_kategori.html">Kategori</a></li>
+            <li><a href="/pages/semua_produk.html">Produk</a></li>
+            <li><a href="/pages/semua_artikel.html">Artikel</a></li>
+            <li><a href="#">Tentang</a></li>
+        </ul>
+    </header>
+    <section>
+        <div id="productContainer" class="container">
+        <div class="product-header">
+            <div class="image-section">
+                <div class="main-image" id="mainImage">
+                    <img id="mainImageSrc" src="" alt="">
+                </div>
+                <div class="thumbnail-container" id="thumbnailContainer">
+                </div>
+            </div>
+            
+            <div class="product-info">
+                <h1 class="product-title" id="productTitle"></h1>
+                
+                <div class="rating-section">
+                    <div class="stars" id="starsContainer"></div>
+                    <span class="review-count" id="reviewCount"></span>
+                </div>
+                
+                <div class="price-section">
+                    <div class="current-price" id="currentPrice"></div>
+                    <div class="price-details">
+                        <span class="original-price" id="originalPrice"></span>
+                        <span class="discount" id="discount"></span>
+                    </div>
+                </div>
+                
+                <div id="variantSection" class="variant-section">
+                    <div class="variant-label">UKURAN</div>
+                    <div class="variant-options" id="variantOptions">
+                    </div>
+                </div>
+                
+                <div id="colorSection" class="color-section">
+                    <div class="variant-label">WARNA</div>
+                    <div class="color-options" id="colorOptions">
+                    </div>
+                </div>
+                
+                <div class="quantity-section">
+                    <span class="quantity-label">JUMLAH</span>
+                    <div class="quantity-controls">
+                        <button class="qty-btn" onclick="changeQuantity(-1)">-</button>
+                        <input type="number" class="qty-input" id="quantity" value="1" min="1">
+                        <button class="qty-btn" onclick="changeQuantity(1)">+</button>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="toChart" class="btn btn-secondary">Keranjang</button>
+                    <button onclick="langsungBeli()" class="btn btn-primary">Beli Langsung</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="store-info">
+            <div class="store-avatar" id="storeAvatar"></div>
+            <div class="store-details">
+                <h3 id="storeName"></h3>
+                <div class="store-rating">
+                    <div class="stars" id="storeStars"></div>
+                    <span id="storeReviewCount"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="specifications">
+            <h2 class="section-title">Detail Produk</h2>
+            <table class="spec-table" id="specTable">
+            </table>
+        </div>
+        
+        <div class="description">
+            <h2 class="section-title">Deskripsi Produk</h2>
+            <p class="description-text" id="descriptionText"></p>
+        </div>
+    </div>
+    </section>
+    <script src="/script/data.js"></script>
+    <script src="/script/lucideLoad.js"></script>
+    <script src="/script/navbarHandler.js"></script>
+    <script src="/script/utils.js"></script>
+    <script src="/script/produkManager.js"></script>
+    <script src="/script/detailProduk.js"></script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UMart - Payment</title>
+    <title>UMart - Bayar</title>
     <link rel="stylesheet" href="/assets/style.css">
     <link rel="stylesheet" href="/assets/alert.css">
     <link rel="stylesheet" href="/assets/payment.css">
@@ -28,7 +28,7 @@
             </ul>
             <div class="button-region-nav">
                 <button id="search-button">
-                    <img src="/assets/icon/search.svg"></img>
+                     <i data-lucide="search"></i>
                 </button>
                 <button id="cart-button">
                     <img src="/assets/icon/shopping-cart.svg"></img>
@@ -41,7 +41,7 @@
             <div class="navbar-content-mobile">
                 <div class="button-region-nav-mobile">
                     <button id="search-button">
-                        <img src="/assets/icon/search.svg"></img>
+                         <i data-lucide="search"></i>
                     </button>
                     <button id="cart-button">
                         <img src="/assets/icon/shopping-cart.svg"></img>
@@ -125,7 +125,7 @@
                         <p>Total Bayar : <span id="totalBayar">Rp. 0</span></p>
                         
                     </div>
-                    <button onclick="openModal()" id="checkOut">Chek Out</button>
+                    <button onclick="handleCheckout()" id="checkOut">Chek Out</button>
                 </div>
             </div>
         </div>
@@ -155,8 +155,15 @@
 </div>
 
     <script src="/script/lucideLoad.js"></script>
-    <script src="/script/script.js"></script>
+    <script src="/script/navbarHandler.js"></script>
     <script src="/script/utils.js"></script>
     <script src="/script/scriptPayment.js"></script>
+    <script>
+    window.addEventListener("beforeunload", function (e) {
+    e.preventDefault();
+    e.returnValue = "";
+    sessionStorage.removeItem("wantToPay");
+  });
+</script>
 </body>
 </html>

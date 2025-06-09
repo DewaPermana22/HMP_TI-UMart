@@ -65,7 +65,7 @@ function renderProduct(product) {
                     <button class="btn-cart" onclick="openModalVariant(${product.id})">
                         🛒
                     </button>
-                    <button class="btn-buy" onclick="buyNow(${product.id})">
+                    <button class="btn-buy" onclick="navigateToProductDetail(${product.id})">
                         Beli
                     </button>
                 </div>
