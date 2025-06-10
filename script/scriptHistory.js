@@ -1,9 +1,7 @@
 const ovrlay = document.getElementById("modalOverlay");
 const modal = document.getElementById("modal");
 
-document.getElementById('home-button').addEventListener('click', () => {
-  window.location.href = '/index.html';
-})
+document.querySelectorAll('#home-button').forEach( button => button.addEventListener('click', () => { window.location.href = '/index.html'; }));
 
 function renderTransaction(transaction) {
   return `

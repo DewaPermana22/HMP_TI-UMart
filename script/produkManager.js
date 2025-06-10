@@ -100,42 +100,39 @@ function openModalVariant(productId) {
     }
 
     function setupAddToCartButton() {
-      const addToCartBtn = document.getElementById("add-to-cart");
-      if (addToCartBtn) {
-        addToCartBtn.replaceWith(addToCartBtn.cloneNode(true));
-        const newAddToCartBtn = document.getElementById("add-to-cart");
+  const addToCartBtn = document.querySelectorAll(".addToCart");
+  
+  if (addToCartBtn.length > 0) {
+    addToCartBtn.forEach((btn) => {
+      btn.addEventListener("click", function () {
+        const hasColors = arrayColor.length > 0;
+        const hasVariants = arrayVariant.length > 0;
         
-        newAddToCartBtn.addEventListener("click", function () {
-          const hasColors = arrayColor.length > 0;
-          const hasVariants = arrayVariant.length > 0;
-          
-          let canAddToCart = true;
-          let errorMessage = "";
-
-          // Jika ada pilihan warna tapi belum dipilih
-          if (hasColors && !selectedColor) {
-            canAddToCart = false;
-            errorMessage += "Silakan pilih warna. ";
-          }
-
-          // Jika ada pilihan varian tapi belum dipilih
-          if (hasVariants && !selectedVariant) {
-            canAddToCart = false;
-            errorMessage += "Silakan pilih varian. ";
-          }
-
-          if (canAddToCart) {
-            addToCart(productId, selectedColor, selectedVariant);
-          } else {
-            alert(errorMessage.trim());
-          }
-        });
-      }
-    }
-
-  } else {
-    addToCart(productId);
+        let canAddToCart = true;
+        let errorMessage = "";
+        
+        // Jika ada pilihan warna tapi belum dipilih
+        if (hasColors && !selectedColor) {
+          canAddToCart = false;
+          errorMessage += "Silakan pilih warna. ";
+        }
+        
+        // Jika ada pilihan varian tapi belum dipilih
+        if (hasVariants && !selectedVariant) {
+          canAddToCart = false;
+          errorMessage += "Silakan pilih varian. ";
+        }
+        
+        if (canAddToCart) {
+          addToCart(productId, selectedColor, selectedVariant);
+        } else {
+          alert(errorMessage.trim());
+        }
+      });
+    });
+}
   }
+}
 }
 
 function addToCart(productId, selectedColor = null, selectedVariant = null, quantity = null) {

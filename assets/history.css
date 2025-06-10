@@ -457,7 +457,17 @@ td {
   font-weight: 500;
 }
 
+.button-region-nav-mobile{
+  display: none;
+}
+
 @media (max-width: 768px) {
+
+  .button-region-nav-mobile{
+    display: flex;
+    margin-right: 30px;
+  }
+
   .hero-container-history {
     padding: 16px;
   }

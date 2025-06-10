@@ -114,9 +114,11 @@ header {
 
 #home-button,
 #search-button,
-#cart-button {
+#cart-button,
+.auth-button-mobile {
   border-radius: 100%;
   padding: 5px;
+  border: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1327,7 +1329,7 @@ header {
     gap: 10px;
   }
 
-  .button-region-nav-mobile button {
+  .navbar-container.active .navbar-content-mobile .button-region-nav-mobile button {
     border: none;
     background-color: black;
     color: white;
@@ -1498,6 +1500,7 @@ header {
   }
 
   .artikel-card {
+    cursor: pointer;
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);

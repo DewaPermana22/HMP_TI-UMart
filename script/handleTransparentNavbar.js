@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const buttonSearch = document.getElementById("search-button");
   const buttonCart = document.getElementById("cart-button");
   const authBtn = document.getElementById("auth-button");
+  const authButtonMobile = document.getElementById("auth");
   const Logo = document.getElementById("Logo");
+  const bar = document.querySelectorAll(".bar");
 
   function handleScroll() {
     if (!containerNavbar) return;
@@ -14,6 +16,11 @@ document.addEventListener('DOMContentLoaded', function() {
     containerNavbar.classList.toggle("active", isScrolled);
     
     if (authBtn) authBtn.classList.toggle("active", isScrolled);
+    if (bar) {
+      for (let i = 0; i < bar.length; i++) {
+        bar[i].style.backgroundColor = isScrolled ? "black" : "white";
+      }
+    }
     if (Logo) Logo.src = isScrolled ? "/assets/UmMart - Logo.svg" : "/assets/UmMart - Logo_White.svg";
     if (buttonSearch) buttonSearch.classList.toggle("active", isScrolled);
     if (buttonCart) buttonCart.classList.toggle("active", isScrolled);

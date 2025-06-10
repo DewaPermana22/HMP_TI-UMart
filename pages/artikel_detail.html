@@ -3,47 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UMart - Semua Artikel</title>
+    <title>UMart - Detail Produk</title>
+    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="/assets/alert.css">
+    <link rel="stylesheet" href="/assets/artikel_detail.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/semua_artikel.css">
     <link rel="icon" type="image/png" href="/assets/UmMart - Logo_OnlyBag.svg" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
         <nav class="navbar-container">
-            <a href="/" class="logo">
-                <img id="Logo" src="/assets/UmMart - Logo_White.svg" alt="logo-aplikasi">
-            </a>
+            <div class="logo">
+                <img src="/assets/UmMart - Logo.svg" alt="logo-aplikasi">
+            </div>
             <ul class="navbar-menu-item">
                 <li><a href="/">Beranda</a></li>
                 <li><a href="/pages/semua_kategori.html">Kategori</a></li>
                 <li><a href="/pages/semua_produk.html">Produk</a></li>
-                <li><a class="active" href="/pages/semua_artikel.html">Artikel</a></li>
+                <li><a href="/pages/semua_artikel.html">Artikel</a></li>
+                <li><a href="#">Tentang</a></li>
             </ul>
             <div class="button-region-nav">
-                <button id="search-button">
-                    <i data-lucide="search"></i>
+                <button class="search-button" id="search-button">
+                     <i data-lucide="search"></i>
                 </button>
-                <button id="cart-button">
-                    <i data-lucide="shopping-cart"></i>
+                <button class="cart-button" id="cart-button">
+                    <img src="/assets/icon/shopping-cart.svg"></img>
                 </button>
-                <button id="auth-button">
+                <button class="auth-button" id="auth-button">
                     <i data-lucide="clock"></i>
                     <span>Riwayat</span>
                 </button>
             </div>
             <div class="navbar-content-mobile">
                 <div class="button-region-nav-mobile">
-                    <button id="search-button">
-                         <i data-lucide="search"></i>
+                    <button class="search-button-mobile" id="search-button">
+                        <i data-lucide="search"></i>
                     </button>
-                    <button id="cart-button">
-                        <i data-lucide="shopping-cart"></i>
+                    <button class="cart-button-mobile" id="cart-button">
+                        <img src="/assets/icon/shopping-cart.svg"></img>
                     </button>
-                    <button id="auth">
+                    <button class="auth-button-mobile" id="auth">
                         <i data-lucide="clock"></i>
                     </button>
                 </div>
@@ -55,49 +58,52 @@
             </div>
         </nav>
         <ul class="navbar-menu-item-mobile">
-            <li><a href="/">Beranda</a></li>
+            <li><a href="index.html">Beranda</a></li>
             <li><a href="/pages/semua_kategori.html">Kategori</a></li>
             <li><a href="/pages/semua_produk.html">Produk</a></li>
             <li><a href="/pages/semua_artikel.html">Artikel</a></li>
+            <li><a href="#">Tentang</a></li>
         </ul>
     </header>
     <section>
-        <div class="header-pages">
-            <div class="layering"></div>
-            <div class="gradasi"></div>
-            <img src="/assets/content/bg-header-pages.svg" alt="Bg Header Pages" class="imageBg">
-            <!-- <img class="imagePeopleRight" src="/assets/content/image-right-kategori.svg" alt="">
-            <img class="imagePeopleLeft" src="/assets/content/image-left-kategori.svg" alt=""> -->
-            <div class="content">
-                <h1>Cari Artikel Dan Belajar Menjadi UMKM</h1>
-                <p>Temukan Artikel Menarik Dan Ayo tambah wawasanmu tentang UMKM, Semua Artikel Gratis!</p>
-                <div class="search">
-                    <label for="search">
-                        <i data-lucide="search"></i>
-                    </label>
-                    <input placeholder="Cari Artikel sesuai Kebutuhanmu..." autocomplete="off" type="text" id="search">
+        <div id="ArtikelContainer" class="container">
+        <article class="article-card">
+            <div class="image-container">
+                <img id="imageArticle" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop&auto=format" 
+                     alt="Digital Marketing Strategy" 
+                     class="hero-image">
+            </div>
+            <div class="content-section">
+                <h1 id="articleTitle" class="article-title">
+                    
+                </h1>
+                <div class="article-description">
+                    <p id="kontenArtikel_atas">
+                        
+                    </p>
+                    <p id="kontenArtikel_bawah">
+                        
+                    </p>
+                </div>
+                <div class="author-section">
+                    <div class="author-avatar">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&auto=format&crop=face" 
+                             alt="Author Avatar" 
+                             class="avatar-image">
+                    </div>
+                    <div class="author-info">
+                        <h3 id="authorName" class="author-name"></h3>
+                        <p id="Role" class="author-role">Digital Marketing Specialist</p>
+                        <div class="article-meta">
+                            <span id="publishDate" class="publish-date">15 November 2024</span>
+                            <span class="read-time">• 5 min read</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="hero-container">
-            <h1 class="title"><textred>Semua</textred> Artikel</h1>
-
-            <div class="artikel-grid-container">
-            <div id="semua-artikel-loading" class="artikel-loading">
-                <i data-lucide="loader-2"></i>
-                <p>Memuat artikel...</p>
-            </div>
-            <div id="semua-articles-grid" class="articles-grid">
-                <!-- nanti listnya artikel di munculin di sini -->
-            </div>
-            <div id="semua-articles-empty" class="articles-empty" style="display: none;">
-                <i data-lucide="package-x"></i>
-                <p>Tidak ada artikel ditemukan</p>
-            </div>
-        </div>
-        </div>
+        </article>
+    </div>
     </section>
-
     <footer class="footer-container">
         <div class="top-content-footer">
             <div class="footer-logo-desc">
@@ -162,11 +168,10 @@
         </div>
        </footer>
 
-    <script src="/script/lucideLoad.js"></script>
     <script src="/script/data.js"></script>
+    <script src="/script/lucideLoad.js"></script>
+    <script src="/script/navbarHandler.js"></script>
     <script src="/script/utils.js"></script>
-    <script src="/script/semuaArtikel.js"></script>
-    <script src="/script/artikelManager.js"></script>
-    <script src="/script/handleTransparentNavbar.js"></script>
+    <script src="/script/detailArtikel.js"></script>
 </body>
 </html>

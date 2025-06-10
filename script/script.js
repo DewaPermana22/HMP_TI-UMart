@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
   loadProducts();
-  renderAllProduks();
   loadArtikels();
 
   // Fungsi buat di card

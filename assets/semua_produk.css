@@ -139,13 +139,6 @@ textred {
   color: black;
 }
 
-#search-button.active,
-#cart-button.active {
-  transition: all 0.3s ease-in-out;
-  background-color: black;
-  color: white;
-}
-
 .button-region-nav {
   display: flex;
   align-items: center;
@@ -633,6 +626,162 @@ textred {
   padding-bottom: 20px;
 }
 
+.modal-variant-ovrlay{
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-header h2{
+  font-size: 20px;
+  line-height: 1;
+  position: relative;
+  top: -10px;
+  font-weight: 600;
+}
+
+.close-modal{
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border: none;
+  background: none;
+  color: var(--gray);
+}
+
+.close-modal:hover{
+  color: var(--red);
+  transition: all 0.3s ease;
+}
+
+.modal{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+.variant-container{
+  display: flex;
+  gap: 10px;
+}
+
+.variant-option {
+    padding: 10px;
+    font-size: 14px;
+    width: 60px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: var(--gray-100);
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.variant-option.selected {
+    border: 2px solid var(--red);
+    transform: scale(1.05);
+    background-color: #fef2f2;
+}
+
+.color-container{
+  display: flex;
+  gap: 10px;
+}
+
+.color-option{
+  width: 60px;
+  border-radius: 10px;
+  height: 40px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.color-option.selected {
+  border-color: var(--red);
+  border-width: 3px;
+  transform: scale(1.05);
+}
+
+.color-option.selected::after {
+  content: '✓';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  z-index: 10;
+  border-radius: 10px;
+}
+
+.modal-content{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal-variant-ovrlay.active{
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-footer{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.modal-footer :nth-child(1){
+    border: none;
+  background-color: var(--red);
+  color: white;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 12px;
+}
+
+.modal-footer :nth-child(2){
+  border: none;
+  cursor: pointer;
+  background-color: var(--gray-200);
+  color: var(--gray);
+  padding: 10px 20px;
+  border-radius: 12px;
+}
+
 @media (max-width: 768px) {
 
   .navbar-menu-item,
@@ -648,7 +797,7 @@ textred {
 
   .navbar-menu-item-mobile {
     position: fixed;
-    top: 49px;
+    top: 60px;
     right: 0;
     padding-top: 30px;
     height: calc(100vh - 70px);
@@ -659,6 +808,7 @@ textred {
     transition: transform 0.3s ease-in-out;
     padding-left: 30px;
     display: flex;
+    border-radius: 20px 0px 0px 20px;
     flex-direction: column;
     gap: 20px;
     z-index: 999;
@@ -670,6 +820,42 @@ textred {
     gap: 10px;
     align-items: center;
   }
+
+  .header-pages .content {
+  height: 350px;
+  }
+
+  .header-pages {
+  width: 100%;
+  height: 300px;
+  }
+
+  .content h1{
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.1;
+  }
+  
+  .content p {
+    padding-top: 10px;
+    text-align: center;
+  }
+
+  .header-pages .content .search_and_filter .search,
+  .header-pages .content .search_and_filter .filter {
+  height: 40px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+.header-pages .content .search_and_filter .search input {
+  font-size: 14px;
+}
+
+.search_and_filter .filter p {
+  display: none;
+}
 
   .button-region-nav-mobile {
     display: flex;
@@ -687,7 +873,6 @@ textred {
     justify-content: center;
     padding: 5px;
   }
-
 
   .navbar-menu-item-mobile.active {
     transform: translateX(0);
@@ -722,6 +907,11 @@ textred {
     background-color: white;
     transition: all 0.3s ease;
     transform-origin: center;
+  }
+
+  .bar.hamburger-menu.active {
+    background-color: black;
+    transition: all 0.3s ease;
   }
 
   .hamburger-menu.active .bar:nth-child(1) {
@@ -768,6 +958,12 @@ textred {
 }
 
 @media (max-width: 480px) {
+
+    .navbar-menu-item-mobile {
+    width: 70%;
+    top: 70px;
+    height: 300px;
+  }
 
   .logo {
     width: 120px;
@@ -834,4 +1030,29 @@ textred {
     gap: 10px;
     padding: 30px 40px 10px 40px;
   }
+
+  .hero-container {
+  padding: 30px 20px;
+}
+.hero-container .title {
+  font-size: 25px;
+  line-height: 1;
+}
+
+.header-pages{
+  height: 270px;
+}
+
+.header-pages .content {
+  height: 320px;
+}
+.header-pages .content h1 {
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: -5px;
+}
+.header-pages .content p {
+  font-size: 13px;
+}
+
 }

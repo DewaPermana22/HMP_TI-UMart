@@ -336,8 +336,24 @@
     width: 100%;
     text-align: center;
     justify-content: center;
-    padding: 20px;
+    
 }
+
+
+.modal-actions button{
+    padding: 5px;
+    cursor: pointer;
+    flex: 1;
+    background-color: var(--light-gray);
+    border: none;
+    border-radius: 5px;
+}
+
+.modal-actions button:not(:first-child) {
+    background-color: var(--red);
+    color: white;
+}
+
 
 .wrapper-qr {
     width: 210px;

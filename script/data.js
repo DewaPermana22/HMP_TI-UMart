@@ -1,45 +1,433 @@
 const productsData = [
-  { id: 1, name: "Keranjang Bambu Serbaguna Anyaman Tangan", image: "/assets/produk/produk_1.jpg", currentPrice: "Rp 75.000", originalPrice: "Rp 100.000", discount: "25%", variant: ["Sedang", "Besar"], color: [], rating: 4.6, reviewCount: 18 },
-  { id: 2, name: "Keripik Singkong Pedas Gurih 150 g", image: "/assets/produk/produk_2.jpg", currentPrice: "Rp 20.000", originalPrice: "Rp 25.000", discount: "20%", variant: ["150 g", "300 g"], color: [], rating: 4.4, reviewCount: 54 },
-  { id: 3, name: "Onesie Katun Bayi Motif Lucu 0–6 Bulan", image: "/assets/produk/produk_3.jpg", currentPrice: "Rp 45.000", originalPrice: "Rp 60.000", discount: "25%", variant: ["0–3 bln", "3–6 bln"], color: [{ name: "Pink", hex: "#EC4899" },{ name: "Biru Muda", hex: "#3B82F6" }], rating: 4.8, reviewCount: 36 },
-  { id: 4, name: "Gelang Manik Tangan Handmade Unisex", image: "/assets/produk/produk_4.jpg", currentPrice: "Rp 30.000", originalPrice: "Rp 40.000", discount: "25%", variant: [], color: [{ name: "Merah", hex: "#DC2626" },{ name: "Biru", hex: "#2563EB" },{ name: "Hitam", hex: "#000000" }], rating: 4.5, reviewCount: 22 },
-  { id: 5, name: "Kaos Polo Katun Lokal Premium", image: "/assets/produk/produk_5.jpg", currentPrice: "Rp 80.000", originalPrice: "Rp 120.000", discount: "33%", variant: ["S", "M", "L", "XL"], color: [{ name: "Navy", hex: "#1E3A8A" },{ name: "Putih", hex: "#FFFFFF" },{ name: "Hijau", hex: "#059669" }], rating: 4.7, reviewCount: 89 },
-  { id: 6, name: "Kerupuk Ikan Tahan Lama 200 g", image: "/assets/produk/produk_6.jpg", currentPrice: "Rp 25.000", originalPrice: "Rp 32.000", discount: "22%", variant: ["100 g", "200 g"], color: [], rating: 4.3, reviewCount: 40 },
-  { id: 7, name: "Mangkok dan Cobek dari Kayu Homemade", image: "/assets/produk/produk_7.jpg", currentPrice: "Rp 60.000", originalPrice: "Rp 85.000", discount: "29%", variant: ["Kecil", "Sedang", "Besar"], color: [], rating: 4.5, reviewCount: 27 },
-  { id: 8, name: "Hoodie Oversize Unisex Korean Style", image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=300&h=200&fit=crop", currentPrice: "Rp 110.000", originalPrice: "Rp 160.000", discount: "31%", variant: ["S", "M", "L", "XL"], color: [{ name: "Hitam", hex: "#000000" },{ name: "Abu-abu", hex: "#6B7280" },{ name: "Cream", hex: "#FEF3C7" }], rating: 4.6, reviewCount: 75 },
-  { id: 9, name: "Topi Rajut Bayi Lucu 0–12 Bulan", image: "/assets/produk/produk_9.jpg", currentPrice: "Rp 25.000", originalPrice: "Rp 35.000", discount: "29%", variant: [], color: [{ name: "Putih", hex: "#FFFFFF" },{ name: "Krem", hex: "#FEF3C7" }], rating: 4.8, reviewCount: 50 },
-  { id: 10, name: "Dompet Kulit Pria Handmade", image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=300&h=200&fit=crop", currentPrice: "Rp 90.000", originalPrice: "Rp 130.000", discount: "31%", variant: [], color: [{ name: "Coklat", hex: "#92400E" },{ name: "Hitam", hex: "#000000" }], rating: 4.7, reviewCount: 60 },
-  { id: 11, name: "Sandal Rajut Handmade Wanita", image: "/assets/produk/produk_11.jpg", currentPrice: "Rp 50.000", originalPrice: "Rp 75.000", discount: "33%", variant: ["36","37","38","39","40"], color: [{ name: "Putih", hex: "#FFFFFF" },{ name: "Pink", hex: "#EC4899" }], rating: 4.4, reviewCount: 33 },
-  { id: 12, name: "Lampu Meja dari bahan daur ulang", image: "/assets/produk/produk_12.jpg", currentPrice: "Rp 120.000", originalPrice: "Rp 160.000", discount: "25%", variant: [], color: [], rating: 4.5, reviewCount: 20 },
-  { id: 13, name: "Wadah Anyaman rotan serbaguna", image: "/assets/produk/produk_13.jpg", currentPrice: "Rp 95.000", originalPrice: "Rp 140.000", discount: "32%", variant: [], color: [{ name: "Coklat", hex: "#92400E" }], rating: 4.7, reviewCount: 48 },
-  { id: 14, name: "Baju Batik Kombinasi Katun Premium", image: "/assets/produk/produk_14.jpg", currentPrice: "Rp 150.000", originalPrice: "Rp 200.000", discount: "25%", variant: ["S","M","L","XL"], color: [], rating: 4.8, reviewCount: 65 },
-  { id: 15, name: "Sarung Tangan Kulit Motor Touring", image: "/assets/produk/produk_15.jpg", currentPrice: "Rp 80.000", originalPrice: "Rp 125.000", discount: "36%", variant: ["M","L","XL"], color: [{ name: "Hitam", hex: "#000000" },{ name: "Coklat", hex: "#92400E" }], rating: 4.4, reviewCount: 92 },
-  { id: 16, name: "Hiasan dinding Kayu Puzzle Estetik", image: "/assets/produk/produk_16.jpg", currentPrice: "Rp 65.000", originalPrice: "Rp 90.000", discount: "28%", variant: [], color: [], rating: 4.6, reviewCount: 40 },
-  { id: 17, name: "Masker Batik 3-Ply Dewasa", image: "/assets/produk/produk_17.jpg", currentPrice: "Rp 30.000", originalPrice: "Rp 45.000", discount: "33%", variant: [], color: [], rating: 4.5, reviewCount: 70 },
-  { id: 18, name: "Sabun Organik Susu Kambing 100 g", image: "/assets/produk/produk_18.jpg", currentPrice: "Rp 40.000", originalPrice: "Rp 55.000", discount: "27%", variant: [], color: [], rating: 4.4, reviewCount: 50 },
-  { id: 19, name: "Batik Tulis Gantungan Kunci Souvenir", image: "/assets/produk/produk_19.jpg", currentPrice: "Rp 15.000", originalPrice: "Rp 20.000", discount: "25%", variant: [], color: [], rating: 4.8, reviewCount: 101 },
-  { id: 20, name: "Asinan kedondong khas Jember 250 g", image: "/assets/produk/produk_20.jpg", currentPrice: "Rp 28.000", originalPrice: "Rp 35.000", discount: "20%", variant: ["250 g"], color: [], rating: 4.3, reviewCount: 58 },
-  { id: 21, name: "Baju Muslim Anak Laki laki", image: "/assets/produk/produk_21.jpg", currentPrice: "Rp 70.000", originalPrice: "Rp 100.000", discount: "30%", variant: ["2–4 th", "5–7 th", "8–10 th"], color: [], rating: 4.6, reviewCount: 34 },
-  { id: 22, name: "Topi Anyaman Bambu Unisex", image: "/assets/produk/produk_22.jpg", currentPrice: "Rp 45.000", originalPrice: "Rp 65.000", discount: "31%", variant: [], color: [{ name: "Natural", hex: "#D2B48C" }], rating: 4.5, reviewCount: 23 },
-  { id: 23, name: "Sprei Katun Lokal 180×200 cm", image: "/assets/produk/produk_23.jpg", currentPrice: "Rp 200.000", originalPrice: "Rp 275.000", discount: "27%", variant: [], color: [{ name: "Putih", hex: "#FFFFFF" },{ name: "Abu-abu", hex: "#6B7280" }], rating: 4.6, reviewCount: 40 },
-  { id: 24, name: "Tas Laptop Dari kulit asli Indonesia", image: "/assets/produk/produk_24.jpg", currentPrice: "Rp 150.000", originalPrice: "Rp 210.000", discount: "29%", variant: ["15″","17″"], color: [{ name: "Coklat Muda", hex: "#D2A679" }], rating: 4.7, reviewCount: 55 },
-  { id: 25, name: "Sambal matah asli Lombok Homemade 250 ml", image: "/assets/produk/produk_25.jpg", currentPrice: "Rp 35.000", originalPrice: "Rp 50.000", discount: "30%", variant: [], color: [], rating: 4.4, reviewCount: 28 },
-  { id: 26, name: "Baju Batik Tradisional Unisex", image: "/assets/produk/produk_26.jpg", currentPrice: "Rp 85.000", originalPrice: "Rp 120.000", discount: "29%", variant: ["1 m", "2 m"], color: [], rating: 4.8, reviewCount: 60 },
-  { id: 27, name: "Set Wadah Anyaman Bambu 40 pcs", image: "/assets/produk/produk_27.jpg", currentPrice: "Rp 50.000", originalPrice: "Rp 70.000", discount: "28%", variant: [], color: [], rating: 4.5, reviewCount: 32 },
-  { id: 28, name: "Blouse Katun Wanita, Buatan Tangan", image: "/assets/produk/produk_28.jpg", currentPrice: "Rp 95.000", originalPrice: "Rp 130.000", discount: "27%", variant: ["S","M","L"], color: [], rating: 4.6, reviewCount: 41 },
-  { id: 29, name: "Kaos Anak Polo Katun Stripe", image: "/assets/produk/produk_29.jpg", currentPrice: "Rp 55.000", originalPrice: "Rp 80.000", discount: "31%", variant: ["S","M","L"], color: [{ name: "Putih", hex: "#FFFFFF" },{ name: "Navy", hex: "#1E3A8A" }], rating: 4.7, reviewCount: 37 },
-  { id: 30, name: "Tas Untuk Perlengkapan Travel", image: "/assets/produk/produk_30.jpg", currentPrice: "Rp 140.000", originalPrice: "Rp 190.000", discount: "26%", variant: [], color: [{ name: "Abu-abu", hex: "#6B7280" },{ name: "Biru Muda", hex: "#3B82F6" }], rating: 4.6, reviewCount: 22 },
-  { id: 31, name: "Gelang Handmade ala ala Kanada", image: "/assets/produk/produk_31.jpg", currentPrice: "Rp 25.000", originalPrice: "Rp 35.000", discount: "29%", variant: [], color: [], rating: 4.5, reviewCount: 15 },
-  { id: 32, name: "Seprai Bayi Katun Motif Ceria", image: "/assets/produk/produk_32.jpg", currentPrice: "Rp 120.000", originalPrice: "Rp 150.000", discount: "20%", variant: [], color: [], rating: 4.8, reviewCount: 48 }
+  {
+    id: 1,
+    name: "Keranjang Bambu Serbaguna Anyaman Tangan",
+    image: "/assets/produk/produk_1.jpg",
+    currentPrice: "Rp 75.000",
+    originalPrice: "Rp 100.000",
+    discount: "25%",
+    variant: ["Sedang", "Besar"],
+    color: [],
+    rating: 4.6,
+    reviewCount: 18,
+  },
+  {
+    id: 2,
+    name: "Keripik Singkong Pedas Gurih 150 g",
+    image: "/assets/produk/produk_2.jpg",
+    currentPrice: "Rp 20.000",
+    originalPrice: "Rp 25.000",
+    discount: "20%",
+    variant: ["150 g", "300 g"],
+    color: [],
+    rating: 4.4,
+    reviewCount: 54,
+  },
+  {
+    id: 3,
+    name: "Onesie Katun Bayi Motif Lucu 0–6 Bulan",
+    image: "/assets/produk/produk_3.jpg",
+    currentPrice: "Rp 45.000",
+    originalPrice: "Rp 60.000",
+    discount: "25%",
+    variant: ["0–3 bln", "3–6 bln"],
+    color: [
+      { name: "Pink", hex: "#EC4899" },
+      { name: "Biru Muda", hex: "#3B82F6" },
+    ],
+    rating: 4.8,
+    reviewCount: 36,
+  },
+  {
+    id: 4,
+    name: "Gelang Manik Tangan Handmade Unisex",
+    image: "/assets/produk/produk_4.jpg",
+    currentPrice: "Rp 30.000",
+    originalPrice: "Rp 40.000",
+    discount: "25%",
+    variant: [],
+    color: [
+      { name: "Merah", hex: "#DC2626" },
+      { name: "Biru", hex: "#2563EB" },
+      { name: "Hitam", hex: "#000000" },
+    ],
+    rating: 4.5,
+    reviewCount: 22,
+  },
+  {
+    id: 5,
+    name: "Kaos Polo Katun Lokal Premium",
+    image: "/assets/produk/produk_5.jpg",
+    currentPrice: "Rp 80.000",
+    originalPrice: "Rp 120.000",
+    discount: "33%",
+    variant: ["S", "M", "L", "XL"],
+    color: [
+      { name: "Navy", hex: "#1E3A8A" },
+      { name: "Putih", hex: "#FFFFFF" },
+      { name: "Hijau", hex: "#059669" },
+    ],
+    rating: 4.7,
+    reviewCount: 89,
+  },
+  {
+    id: 6,
+    name: "Kerupuk Ikan Tahan Lama 200 g",
+    image: "/assets/produk/produk_6.jpg",
+    currentPrice: "Rp 25.000",
+    originalPrice: "Rp 32.000",
+    discount: "22%",
+    variant: ["100 g", "200 g"],
+    color: [],
+    rating: 4.3,
+    reviewCount: 40,
+  },
+  {
+    id: 7,
+    name: "Mangkok dan Cobek dari Kayu Homemade",
+    image: "/assets/produk/produk_7.jpg",
+    currentPrice: "Rp 60.000",
+    originalPrice: "Rp 85.000",
+    discount: "29%",
+    variant: ["Kecil", "Sedang", "Besar"],
+    color: [],
+    rating: 4.5,
+    reviewCount: 27,
+  },
+  {
+    id: 8,
+    name: "Hoodie Oversize Unisex Korean Style",
+    image:
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=300&h=200&fit=crop",
+    currentPrice: "Rp 110.000",
+    originalPrice: "Rp 160.000",
+    discount: "31%",
+    variant: ["S", "M", "L", "XL"],
+    color: [
+      { name: "Hitam", hex: "#000000" },
+      { name: "Abu-abu", hex: "#6B7280" },
+      { name: "Cream", hex: "#FEF3C7" },
+    ],
+    rating: 4.6,
+    reviewCount: 75,
+  },
+  {
+    id: 9,
+    name: "Topi Rajut Bayi Lucu 0–12 Bulan",
+    image: "/assets/produk/produk_9.jpg",
+    currentPrice: "Rp 25.000",
+    originalPrice: "Rp 35.000",
+    discount: "29%",
+    variant: [],
+    color: [
+      { name: "Putih", hex: "#FFFFFF" },
+      { name: "Krem", hex: "#FEF3C7" },
+    ],
+    rating: 4.8,
+    reviewCount: 50,
+  },
+  {
+    id: 10,
+    name: "Dompet Kulit Pria Handmade",
+    image:
+      "https://images.unsplash.com/photo-1627123424574-724758594e93?w=300&h=200&fit=crop",
+    currentPrice: "Rp 90.000",
+    originalPrice: "Rp 130.000",
+    discount: "31%",
+    variant: [],
+    color: [
+      { name: "Coklat", hex: "#92400E" },
+      { name: "Hitam", hex: "#000000" },
+    ],
+    rating: 4.7,
+    reviewCount: 60,
+  },
+  {
+    id: 11,
+    name: "Sandal Rajut Handmade Wanita",
+    image: "/assets/produk/produk_11.jpg",
+    currentPrice: "Rp 50.000",
+    originalPrice: "Rp 75.000",
+    discount: "33%",
+    variant: ["36", "37", "38", "39", "40"],
+    color: [
+      { name: "Putih", hex: "#FFFFFF" },
+      { name: "Pink", hex: "#EC4899" },
+    ],
+    rating: 4.4,
+    reviewCount: 33,
+  },
+  {
+    id: 12,
+    name: "Lampu Meja dari bahan daur ulang",
+    image: "/assets/produk/produk_12.jpg",
+    currentPrice: "Rp 120.000",
+    originalPrice: "Rp 160.000",
+    discount: "25%",
+    variant: [],
+    color: [],
+    rating: 4.5,
+    reviewCount: 20,
+  },
+  {
+    id: 13,
+    name: "Wadah Anyaman rotan serbaguna",
+    image: "/assets/produk/produk_13.jpg",
+    currentPrice: "Rp 95.000",
+    originalPrice: "Rp 140.000",
+    discount: "32%",
+    variant: [],
+    color: [{ name: "Coklat", hex: "#92400E" }],
+    rating: 4.7,
+    reviewCount: 48,
+  },
+  {
+    id: 14,
+    name: "Baju Batik Kombinasi Katun Premium",
+    image: "/assets/produk/produk_14.jpg",
+    currentPrice: "Rp 150.000",
+    originalPrice: "Rp 200.000",
+    discount: "25%",
+    variant: ["S", "M", "L", "XL"],
+    color: [],
+    rating: 4.8,
+    reviewCount: 65,
+  },
+  {
+    id: 15,
+    name: "Sarung Tangan Kulit Motor Touring",
+    image: "/assets/produk/produk_15.jpg",
+    currentPrice: "Rp 80.000",
+    originalPrice: "Rp 125.000",
+    discount: "36%",
+    variant: ["M", "L", "XL"],
+    color: [
+      { name: "Hitam", hex: "#000000" },
+      { name: "Coklat", hex: "#92400E" },
+    ],
+    rating: 4.4,
+    reviewCount: 92,
+  },
+  {
+    id: 16,
+    name: "Hiasan dinding Kayu Puzzle Estetik",
+    image: "/assets/produk/produk_16.jpg",
+    currentPrice: "Rp 65.000",
+    originalPrice: "Rp 90.000",
+    discount: "28%",
+    variant: [],
+    color: [],
+    rating: 4.6,
+    reviewCount: 40,
+  },
+  {
+    id: 17,
+    name: "Masker Batik 3-Ply Dewasa",
+    image: "/assets/produk/produk_17.jpg",
+    currentPrice: "Rp 30.000",
+    originalPrice: "Rp 45.000",
+    discount: "33%",
+    variant: [],
+    color: [],
+    rating: 4.5,
+    reviewCount: 70,
+  },
+  {
+    id: 18,
+    name: "Sabun Organik Susu Kambing 100 g",
+    image: "/assets/produk/produk_18.jpg",
+    currentPrice: "Rp 40.000",
+    originalPrice: "Rp 55.000",
+    discount: "27%",
+    variant: [],
+    color: [],
+    rating: 4.4,
+    reviewCount: 50,
+  },
+  {
+    id: 19,
+    name: "Batik Tulis Gantungan Kunci Souvenir",
+    image: "/assets/produk/produk_19.jpg",
+    currentPrice: "Rp 15.000",
+    originalPrice: "Rp 20.000",
+    discount: "25%",
+    variant: [],
+    color: [],
+    rating: 4.8,
+    reviewCount: 101,
+  },
+  {
+    id: 20,
+    name: "Asinan kedondong khas Jember 250 g",
+    image: "/assets/produk/produk_20.jpg",
+    currentPrice: "Rp 28.000",
+    originalPrice: "Rp 35.000",
+    discount: "20%",
+    variant: ["250 g"],
+    color: [],
+    rating: 4.3,
+    reviewCount: 58,
+  },
+  {
+    id: 21,
+    name: "Baju Muslim Anak Laki laki",
+    image: "/assets/produk/produk_21.jpg",
+    currentPrice: "Rp 70.000",
+    originalPrice: "Rp 100.000",
+    discount: "30%",
+    variant: ["2–4 th", "5–7 th", "8–10 th"],
+    color: [],
+    rating: 4.6,
+    reviewCount: 34,
+  },
+  {
+    id: 22,
+    name: "Topi Anyaman Bambu Unisex",
+    image: "/assets/produk/produk_22.jpg",
+    currentPrice: "Rp 45.000",
+    originalPrice: "Rp 65.000",
+    discount: "31%",
+    variant: [],
+    color: [{ name: "Natural", hex: "#D2B48C" }],
+    rating: 4.5,
+    reviewCount: 23,
+  },
+  {
+    id: 23,
+    name: "Sprei Katun Lokal 180×200 cm",
+    image: "/assets/produk/produk_23.jpg",
+    currentPrice: "Rp 200.000",
+    originalPrice: "Rp 275.000",
+    discount: "27%",
+    variant: [],
+    color: [
+      { name: "Putih", hex: "#FFFFFF" },
+      { name: "Abu-abu", hex: "#6B7280" },
+    ],
+    rating: 4.6,
+    reviewCount: 40,
+  },
+  {
+    id: 24,
+    name: "Tas Laptop Dari kulit asli Indonesia",
+    image: "/assets/produk/produk_24.jpg",
+    currentPrice: "Rp 150.000",
+    originalPrice: "Rp 210.000",
+    discount: "29%",
+    variant: ["15″", "17″"],
+    color: [{ name: "Coklat Muda", hex: "#D2A679" }],
+    rating: 4.7,
+    reviewCount: 55,
+  },
+  {
+    id: 25,
+    name: "Sambal matah asli Lombok Homemade 250 ml",
+    image: "/assets/produk/produk_25.jpg",
+    currentPrice: "Rp 35.000",
+    originalPrice: "Rp 50.000",
+    discount: "30%",
+    variant: [],
+    color: [],
+    rating: 4.4,
+    reviewCount: 28,
+  },
+  {
+    id: 26,
+    name: "Baju Batik Tradisional Unisex",
+    image: "/assets/produk/produk_26.jpg",
+    currentPrice: "Rp 85.000",
+    originalPrice: "Rp 120.000",
+    discount: "29%",
+    variant: ["1 m", "2 m"],
+    color: [],
+    rating: 4.8,
+    reviewCount: 60,
+  },
+  {
+    id: 27,
+    name: "Set Wadah Anyaman Bambu 40 pcs",
+    image: "/assets/produk/produk_27.jpg",
+    currentPrice: "Rp 50.000",
+    originalPrice: "Rp 70.000",
+    discount: "28%",
+    variant: [],
+    color: [],
+    rating: 4.5,
+    reviewCount: 32,
+  },
+  {
+    id: 28,
+    name: "Blouse Katun Wanita, Buatan Tangan",
+    image: "/assets/produk/produk_28.jpg",
+    currentPrice: "Rp 95.000",
+    originalPrice: "Rp 130.000",
+    discount: "27%",
+    variant: ["S", "M", "L"],
+    color: [],
+    rating: 4.6,
+    reviewCount: 41,
+  },
+  {
+    id: 29,
+    name: "Kaos Anak Polo Katun Stripe",
+    image: "/assets/produk/produk_29.jpg",
+    currentPrice: "Rp 55.000",
+    originalPrice: "Rp 80.000",
+    discount: "31%",
+    variant: ["S", "M", "L"],
+    color: [
+      { name: "Putih", hex: "#FFFFFF" },
+      { name: "Navy", hex: "#1E3A8A" },
+    ],
+    rating: 4.7,
+    reviewCount: 37,
+  },
+  {
+    id: 30,
+    name: "Tas Untuk Perlengkapan Travel",
+    image: "/assets/produk/produk_30.jpg",
+    currentPrice: "Rp 140.000",
+    originalPrice: "Rp 190.000",
+    discount: "26%",
+    variant: [],
+    color: [
+      { name: "Abu-abu", hex: "#6B7280" },
+      { name: "Biru Muda", hex: "#3B82F6" },
+    ],
+    rating: 4.6,
+    reviewCount: 22,
+  },
+  {
+    id: 31,
+    name: "Gelang Handmade ala ala Kanada",
+    image: "/assets/produk/produk_31.jpg",
+    currentPrice: "Rp 25.000",
+    originalPrice: "Rp 35.000",
+    discount: "29%",
+    variant: [],
+    color: [],
+    rating: 4.5,
+    reviewCount: 15,
+  },
+  {
+    id: 32,
+    name: "Seprai Bayi Katun Motif Ceria",
+    image: "/assets/produk/produk_32.jpg",
+    currentPrice: "Rp 120.000",
+    originalPrice: "Rp 150.000",
+    discount: "20%",
+    variant: [],
+    color: [],
+    rating: 4.8,
+    reviewCount: 48,
+  },
 ];
-
 
 const articlesData = [
   {
     id: 1,
     name: "Cara Membuat QRIS All Payment untuk Pelaku Usaha!",
-    image:
-      "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=300&h=200&fit=crop",
+    image: "/assets/detail/detail_artikel.webp",
     description:
       "Panduan lengkap membuat QRIS yang mendukung semua jenis pembayaran digital. Cocok untuk pelaku usaha yang ingin mempermudah transaksi dengan pelanggan dari berbagai platform.",
     author: "Kirania Kharisa S.",
@@ -53,8 +441,7 @@ const articlesData = [
   {
     id: 2,
     name: "Simak beberapa cara agar UMKM Kamu Menjadi Go Digital",
-    image:
-      "https://images.unsplash.com/photo-1521369909029-2afed882baee?w=300&h=200&fit=crop",
+    image: "/assets/detail/umkm_go_digital.jpg",
     description:
       "Transformasi digital sangat penting bagi UMKM untuk tetap bersaing. Artikel ini membahas langkah-langkah praktis agar UMKM bisa memanfaatkan teknologi dalam menjalankan bisnis.",
     author: "Fahmy Bima Az-Zukhruf",
@@ -68,8 +455,7 @@ const articlesData = [
   {
     id: 3,
     name: "Cara membangun Usaha dari Nol Agar terhindar dari Gagal",
-    image:
-      "/assets/produk",
+    image: "/assets/detail/business_plan.jpg",
     description:
       "Memulai usaha dari nol membutuhkan strategi dan ketekunan. Artikel ini membagikan tips penting agar bisnis kamu tidak mudah tumbang di tengah jalan.",
     author: "Dewa Permana",
@@ -96,7 +482,7 @@ const produkDetailData = [
     image_detail: [
       "/assets/produk/produk_1.jpg",
       "/assets/detail/detail_produk_1.jpg",
-      "/assets/detail/detail_produk_1_2.jpg"
+      "/assets/detail/detail_produk_1_2.jpg",
     ],
     deskripsi:
       "Kain batik asli Solo dengan motif tradisional yang elegan. Cocok untuk pakaian formal maupun casual, dibuat dengan tangan dan pewarna alami.",
@@ -117,7 +503,7 @@ const produkDetailData = [
     },
     image_detail: [
       "https://example.com/images/roti1.jpg",
-      "https://example.com/images/roti2.jpg"
+      "https://example.com/images/roti2.jpg",
     ],
     deskripsi:
       "Roti homemade yang lembut dan nikmat, menggunakan bahan alami tanpa pengawet. Cocok untuk sarapan sehat dan cemilan keluarga.",
@@ -138,7 +524,7 @@ const produkDetailData = [
     },
     image_detail: [
       "https://example.com/images/kaos1.jpg",
-      "https://example.com/images/kaos2.jpg"
+      "https://example.com/images/kaos2.jpg",
     ],
     deskripsi:
       "Pakaian casual dengan bahan nyaman dan desain kekinian. Tersedia berbagai ukuran untuk pria dan wanita.",
@@ -157,9 +543,7 @@ const produkDetailData = [
       garansi: "Tidak Ada",
       dikirim_dari: "Yogyakarta",
     },
-    image_detail: [
-      "https://example.com/images/aksesoris1.jpg"
-    ],
+    image_detail: ["https://example.com/images/aksesoris1.jpg"],
     deskripsi:
       "Aksesoris handmade dengan bahan berkualitas dan desain unik. Cocok untuk melengkapi penampilanmu sehari-hari atau acara spesial.",
     nama_toko: "Cantik Handmade",
@@ -179,7 +563,7 @@ const produkDetailData = [
     },
     image_detail: [
       "https://example.com/images/bayi1.jpg",
-      "https://example.com/images/bayi2.jpg"
+      "https://example.com/images/bayi2.jpg",
     ],
     deskripsi:
       "Produk perlengkapan bayi yang aman dan nyaman, dibuat dari bahan berkualitas untuk menjaga kesehatan si kecil.",
@@ -200,7 +584,7 @@ const produkDetailData = [
     },
     image_detail: [
       "https://example.com/images/anyaman1.jpg",
-      "https://example.com/images/anyaman2.jpg"
+      "https://example.com/images/anyaman2.jpg",
     ],
     deskripsi:
       "Tas dan topi anyaman tradisional khas Bali, cocok untuk penampilan casual dan souvenir khas Indonesia.",
@@ -221,7 +605,7 @@ const produkDetailData = [
     },
     image_detail: [
       "https://example.com/images/keripik1.jpg",
-      "https://example.com/images/keripik2.jpg"
+      "https://example.com/images/keripik2.jpg",
     ],
     deskripsi:
       "Keripik singkong dan pisang yang renyah dan gurih, dibuat dengan resep tradisional tanpa bahan pengawet.",
@@ -240,9 +624,7 @@ const produkDetailData = [
       garansi: "Tidak Ada",
       dikirim_dari: "Bandung",
     },
-    image_detail: [
-      "https://example.com/images/hijab1.jpg"
-    ],
+    image_detail: ["https://example.com/images/hijab1.jpg"],
     deskripsi:
       "Hijab dengan bahan nyaman dan motif menarik, cocok untuk dikenakan sehari-hari maupun acara resmi.",
     nama_toko: "Hijab Cantik",
@@ -262,7 +644,7 @@ const produkDetailData = [
     },
     image_detail: [
       "https://example.com/images/woodcraft1.jpg",
-      "https://example.com/images/woodcraft2.jpg"
+      "https://example.com/images/woodcraft2.jpg",
     ],
     deskripsi:
       "Kerajinan tangan dari kayu berkualitas tinggi, dibuat dengan detail dan keahlian tinggi dari pengrajin Jepara.",
@@ -281,9 +663,7 @@ const produkDetailData = [
       garansi: "Tidak Ada",
       dikirim_dari: "Jakarta",
     },
-    image_detail: [
-      "https://example.com/images/lullaby1.jpg"
-    ],
+    image_detail: ["https://example.com/images/lullaby1.jpg"],
     deskripsi:
       "Perlengkapan bayi yang aman dan edukatif, membantu tumbuh kembang si kecil dengan mainan dan pakaian berkualitas.",
     nama_toko: "Lullaby Baby",
@@ -291,8 +671,6 @@ const produkDetailData = [
     rating: 4.7,
     review_count: 110,
   },
-  // Lanjutkan data berikutnya dengan pola yang sama
-  // ...
   {
     id_produk: 11,
     spesifikasi: {
@@ -305,7 +683,7 @@ const produkDetailData = [
     },
     image_detail: [
       "https://example.com/images/rajut1.jpg",
-      "https://example.com/images/rajut2.jpg"
+      "https://example.com/images/rajut2.jpg",
     ],
     deskripsi:
       "Tas dan dompet rajut unik, cocok untuk tampilan santai dengan sentuhan handmade yang menarik.",
@@ -324,9 +702,7 @@ const produkDetailData = [
       garansi: "Tidak Ada",
       dikirim_dari: "Malang",
     },
-    image_detail: [
-      "https://example.com/images/manisan1.jpg"
-    ],
+    image_detail: ["https://example.com/images/manisan1.jpg"],
     deskripsi:
       "Manisan buah asli Malang, dibuat dari buah segar dengan rasa manis alami yang pas.",
     nama_toko: "Manisan Malang",
@@ -346,7 +722,7 @@ const produkDetailData = [
     },
     image_detail: [
       "https://example.com/images/jeans1.jpg",
-      "https://example.com/images/jeans2.jpg"
+      "https://example.com/images/jeans2.jpg",
     ],
     deskripsi:
       "Jeans berkualitas dengan potongan modern dan bahan nyaman dipakai untuk aktivitas sehari-hari.",
@@ -365,9 +741,7 @@ const produkDetailData = [
       garansi: "6 Bulan",
       dikirim_dari: "Jakarta",
     },
-    image_detail: [
-      "https://example.com/images/perhiasan1.jpg"
-    ],
+    image_detail: ["https://example.com/images/perhiasan1.jpg"],
     deskripsi:
       "Perhiasan emas dengan desain elegan dan kualitas terjamin, cocok untuk hadiah spesial.",
     nama_toko: "Perhiasan Emas Jakarta",
@@ -387,7 +761,7 @@ const produkDetailData = [
     },
     image_detail: [
       "https://example.com/images/babybliss1.jpg",
-      "https://example.com/images/babybliss2.jpg"
+      "https://example.com/images/babybliss2.jpg",
     ],
     deskripsi:
       "Perlengkapan bayi nyaman dan praktis dengan bahan yang lembut dan aman untuk kulit si kecil.",
@@ -408,7 +782,7 @@ const produkDetailData = [
     },
     image_detail: [
       "https://example.com/images/lukisan1.jpg",
-      "https://example.com/images/lukisan2.jpg"
+      "https://example.com/images/lukisan2.jpg",
     ],
     deskripsi:
       "Lukisan tradisional Bali dengan warna-warna alami yang memukau, cocok untuk dekorasi rumah atau kantor.",
@@ -429,7 +803,7 @@ const produkDetailData = [
     },
     image_detail: [
       "https://example.com/images/kopi1.jpg",
-      "https://example.com/images/kopi2.jpg"
+      "https://example.com/images/kopi2.jpg",
     ],
     deskripsi:
       "Kopi asli Aceh dengan aroma khas dan cita rasa kuat, cocok untuk pecinta kopi sejati.",
@@ -450,7 +824,7 @@ const produkDetailData = [
     },
     image_detail: [
       "https://example.com/images/batikmodern1.jpg",
-      "https://example.com/images/batikmodern2.jpg"
+      "https://example.com/images/batikmodern2.jpg",
     ],
     deskripsi:
       "Baju batik dengan desain modern dan bahan berkualitas, cocok untuk acara formal dan semi formal.",
@@ -471,7 +845,7 @@ const produkDetailData = [
     },
     image_detail: [
       "https://example.com/images/kulit1.jpg",
-      "https://example.com/images/kulit2.jpg"
+      "https://example.com/images/kulit2.jpg",
     ],
     deskripsi:
       "Kerajinan kulit asli dengan kualitas terbaik dan desain elegan untuk penampilan lebih percaya diri.",
@@ -490,9 +864,7 @@ const produkDetailData = [
       garansi: "Tidak Ada",
       dikirim_dari: "Jakarta",
     },
-    image_detail: [
-      "https://example.com/images/babycomfort1.jpg"
-    ],
+    image_detail: ["https://example.com/images/babycomfort1.jpg"],
     deskripsi:
       "Perlengkapan bayi nyaman dan aman, bahan lembut cocok untuk kulit bayi sensitif.",
     nama_toko: "Baby Comfort",
@@ -512,7 +884,7 @@ const produkDetailData = [
     },
     image_detail: [
       "https://example.com/images/patung1.jpg",
-      "https://example.com/images/patung2.jpg"
+      "https://example.com/images/patung2.jpg",
     ],
     deskripsi:
       "Patung kayu ukiran Jepara dengan detail artistik tinggi, cocok untuk koleksi dan dekorasi.",
@@ -531,9 +903,7 @@ const produkDetailData = [
       garansi: "Tidak Ada",
       dikirim_dari: "Yogyakarta",
     },
-    image_detail: [
-      "https://example.com/images/snack1.jpg"
-    ],
+    image_detail: ["https://example.com/images/snack1.jpg"],
     deskripsi:
       "Snack tradisional khas Jogja, lezat dan cocok untuk cemilan atau oleh-oleh.",
     nama_toko: "Snack Jogja",
@@ -551,9 +921,7 @@ const produkDetailData = [
       garansi: "Tidak Ada",
       dikirim_dari: "Jakarta",
     },
-    image_detail: [
-      "https://example.com/images/fashionanak1.jpg"
-    ],
+    image_detail: ["https://example.com/images/fashionanak1.jpg"],
     deskripsi:
       "Pakaian anak dengan desain lucu dan bahan nyaman, cocok untuk aktivitas sehari-hari.",
     nama_toko: "Fashion Anak Jakarta",
@@ -573,7 +941,7 @@ const produkDetailData = [
     },
     image_detail: [
       "https://example.com/images/batu1.jpg",
-      "https://example.com/images/batu2.jpg"
+      "https://example.com/images/batu2.jpg",
     ],
     deskripsi:
       "Aksesoris dari batu alam asli, cocok untuk penampilan natural dan unik.",
@@ -592,9 +960,7 @@ const produkDetailData = [
       garansi: "Tidak Ada",
       dikirim_dari: "Surabaya",
     },
-    image_detail: [
-      "https://example.com/images/littlestar1.jpg"
-    ],
+    image_detail: ["https://example.com/images/littlestar1.jpg"],
     deskripsi:
       "Perlengkapan bayi yang lucu dan edukatif, membantu tumbuh kembang si kecil.",
     nama_toko: "Little Star Surabaya",
@@ -614,7 +980,7 @@ const produkDetailData = [
     },
     image_detail: [
       "https://example.com/images/keramik1.jpg",
-      "https://example.com/images/keramik2.jpg"
+      "https://example.com/images/keramik2.jpg",
     ],
     deskripsi:
       "Kerajinan keramik dengan desain artistik, cocok sebagai pajangan atau hadiah.",
@@ -633,9 +999,7 @@ const produkDetailData = [
       garansi: "Tidak Ada",
       dikirim_dari: "Medan",
     },
-    image_detail: [
-      "https://example.com/images/kue1.jpg"
-    ],
+    image_detail: ["https://example.com/images/kue1.jpg"],
     deskripsi:
       "Kue tradisional Indonesia dengan rasa otentik dan tekstur lembut, cocok untuk acara keluarga.",
     nama_toko: "Kue Medan",
@@ -655,7 +1019,7 @@ const produkDetailData = [
     },
     image_detail: [
       "https://example.com/images/muslim1.jpg",
-      "https://example.com/images/muslim2.jpg"
+      "https://example.com/images/muslim2.jpg",
     ],
     deskripsi:
       "Pakaian muslim dengan bahan nyaman dan desain modis, cocok untuk segala acara.",
@@ -676,10 +1040,9 @@ const produkDetailData = [
     },
     image_detail: [
       "https://example.com/images/emas1.jpg",
-      "https://example.com/images/emas2.jpg"
+      "https://example.com/images/emas2.jpg",
     ],
-    deskripsi:
-      "Perhiasan emas asli dengan desain elegan dan kualitas terbaik.",
+    deskripsi: "Perhiasan emas asli dengan desain elegan dan kualitas terbaik.",
     nama_toko: "Emas Jakarta",
     profile_img: "https://example.com/profiles/emas-jakarta.png",
     rating: 4.9,
@@ -695,9 +1058,7 @@ const produkDetailData = [
       garansi: "Tidak Ada",
       dikirim_dari: "Bandung",
     },
-    image_detail: [
-      "https://example.com/images/mommycare1.jpg"
-    ],
+    image_detail: ["https://example.com/images/mommycare1.jpg"],
     deskripsi:
       "Perlengkapan bayi lengkap dari botol susu hingga perlengkapan makan dengan bahan aman.",
     nama_toko: "Mommy Care Bandung",
@@ -717,7 +1078,7 @@ const produkDetailData = [
     },
     image_detail: [
       "https://example.com/images/rotan1.jpg",
-      "https://example.com/images/rotan2.jpg"
+      "https://example.com/images/rotan2.jpg",
     ],
     deskripsi:
       "Kerajinan anyaman rotan yang kuat dan tahan lama, cocok untuk dekorasi dan keperluan sehari-hari.",
@@ -736,14 +1097,39 @@ const produkDetailData = [
       garansi: "Tidak Ada",
       dikirim_dari: "Makassar",
     },
-    image_detail: [
-      "https://example.com/images/keripik1.jpg"
-    ],
+    image_detail: ["https://example.com/images/keripik1.jpg"],
     deskripsi:
       "Makanan ringan khas Makassar, gurih dan renyah, cocok untuk teman santai.",
     nama_toko: "Keripik Makassar",
     profile_img: "https://example.com/profiles/keripik-makassar.png",
     rating: 4.6,
     review_count: 95,
+  },
+];
+
+const articleDetailData = [
+  {
+    article_id: 1,
+    deskripsi_atas:
+      "Di era digital yang serba cepat ini, kemudahan dan efisiensi dalam bertransaksi menjadi kunci utama kesuksesan bisnis. QRIS (Quick Response Code Indonesian Standard) hadir sebagai inovasi revolusioner dari Bank Indonesia yang menyatukan berbagai metode pembayaran digital dalam satu kode QR tunggal. Namun, tahukah Anda bahwa ada tingkatan selanjutnya yang akan membawa bisnis Anda ke level berikutnya?",
+    deskripsi_bawah:
+      "Artikel ini akan mengupas tuntas rahasia di balik QRIS All Payment sebuah sistem yang memungkinkan pelaku usaha menerima pembayaran dari berbagai sumber (dompet digital, mobile banking, hingga kartu kredit/debit) hanya dengan satu kode QR. Bayangkan, tidak ada lagi kerumitan mengelola banyak perangkat atau aplikasi pembayaran berbeda! Kami akan memandu Anda langkah demi langkah, mulai dari memahami manfaat fundamental QRIS All Payment bagi bisnis Anda, hingga panduan praktis tentang bagaimana Anda dapat membuatnya. Anda akan menemukan informasi lengkap mengenai proses pendaftaran yang mudah, kriteria penting dalam memilih Penyedia Jasa Pembayaran (PJP) yang tepat dan terpercaya, serta tips-tips strategis untuk mengoptimalkan penggunaan QRIS dalam operasional bisnis sehari-hari.",
+    realese_date: "13 November 2024",
+  },
+  {
+    article_id: 2,
+    deskripsi_atas:
+      "Transformasi digital adalah kunci untuk membuka potensi tak terbatas bagi UMKM Anda. Dalam artikel ini, kami akan menjabarkan berbagai cara efektif agar bisnis Anda tidak hanya sekadar ada di dunia maya, tetapi benar-benar berkembang dan menjangkau audiens yang lebih luas. Kami akan mengulas pentingnya pemahaman dasar tentang ekosistem digital dan bagaimana memanfaatkannya untuk memperkuat brand Anda serta meningkatkan penjualan.",
+    deskripsi_bawah:
+      "Dari strategi pemasaran digital yang budget-friendly hingga pemanfaatan teknologi untuk otomatisasi proses bisnis, artikel ini akan membekali Anda dengan pengetahuan yang dibutuhkan. Kami juga akan menyentuh aspek penting seperti keamanan digital dan cara membangun loyalitas pelanggan melalui interaksi online. Mari bersama-sama wujudkan UMKM yang lebih inovatif, efisien, dan siap menghadapi tantangan pasar di era digital.",
+    realese_date: "20 November 2024",
+  },
+  {
+    article_id: 3,
+    deskripsi_atas:
+      "Memulai sebuah usaha dari nol adalah impian banyak orang, namun tak sedikit pula yang kandas di tengah jalan. Artikel ini hadir sebagai panduan komprehensif yang akan membekali Anda dengan strategi dan kiat jitu agar mimpi Anda tidak berakhir sebagai kegagalan. Kami akan membahas secara mendalam langkah-langkah fundamental yang harus Anda persiapkan, mulai dari mematangkan ide bisnis, melakukan riset pasar yang cermat, hingga menyusun rencana bisnis yang kokoh dan realistis.",
+    deskripsi_bawah:
+      "Anda akan mempelajari bagaimana mengelola keuangan dengan bijak sejak dini, pentingnya membangun jaringan, serta cara menghadapi berbagai tantangan yang tak terduga. Kami juga akan mengupas mindset yang tepat untuk seorang founder, termasuk ketahanan mental dan kemampuan beradaptasi. Dengan panduan ini, Anda akan memiliki bekal yang cukup untuk membangun usaha yang bukan hanya sukses, tetapi juga berkelanjutan di tengah persaingan pasar yang ketat.",
+    realese_date: "28 November 2024",
   },
 ];

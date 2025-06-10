@@ -23,18 +23,12 @@ function renderProductsToGrid(products, containerId, loadingId, emptyId) {
     const loadingElement = document.getElementById(loadingId);
     const gridElement = document.getElementById(containerId);
     const emptyElement = document.getElementById(emptyId);
-    
-    // Sembunyikan loading
     if (loadingElement) loadingElement.style.display = 'none';
-    
-    // Handle jika tidak ada produk
     if (products.length === 0) {
         if (gridElement) gridElement.style.display = 'none';
         if (emptyElement) emptyElement.style.display = 'flex';
         return;
     }
-
-    // Tampilkan produk
     if (emptyElement) emptyElement.style.display = 'none';
     if (gridElement) {
         gridElement.style.display = 'grid';
@@ -77,7 +71,7 @@ function renderProduct(product) {
 // Render Artikel
 function renderArticles(artikel){
     return `
-        <div class="artikel-card">
+        <div data-id="${artikel.id}" class="artikel-card">
         <img src="${artikel.image}" 
          alt="${artikel.name}" class="artikel-image">
     
@@ -111,25 +105,21 @@ function renderArticles(artikel){
     `
 }
 
-
-function renderArtikels(artikels) {
-    const loadingElement = document.getElementById('artikel-loading');
-    const gridElement = document.getElementById('articles-grid');
-    const emptyElement = document.getElementById('articles-empty');
-    
+function renderArtikelToGrid(artikels, containerId, loadingId, emptyId) {
+    const loadingElement = document.getElementById(loadingId);
+    const gridElement = document.getElementById(containerId);
+    const emptyElement = document.getElementById(emptyId);
     if (loadingElement) loadingElement.style.display = 'none';
-    
     if (artikels.length === 0) {
-        gridElement.style.display = 'none';
-        emptyElement.style.display = 'flex';
+        if (gridElement) gridElement.style.display = 'none';
+        if (emptyElement) emptyElement.style.display = 'flex';
         return;
     }
-
-    emptyElement.style.display = 'none';
-    gridElement.style.display = 'grid';
-    
-    const productsHTML = artikels.map(artikel => renderArticles(artikel)).join('');
-    gridElement.innerHTML = productsHTML;
+    if (emptyElement) emptyElement.style.display = 'none';
+    if (gridElement) {
+        gridElement.style.display = 'grid';
+        gridElement.innerHTML = artikels.map(art => renderArticles(art)).join('');
+    }
 }
 
 const formatRupiah = number => new Intl.NumberFormat('id-ID', {
@@ -199,3 +189,4 @@ window.formatRupiah = formatRupiah;
 window.showAlert = showAlert;
 window.formatTanggal = formatTanggal;
 window.renderProductsToGrid = renderProductsToGrid;
+window.renderArtikelToGrid = renderArtikelToGrid;

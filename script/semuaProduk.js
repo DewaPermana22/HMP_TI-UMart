@@ -1,12 +1,9 @@
+document.addEventListener("DOMContentLoaded", function () {
+  renderAllProduks();
+})
+
 const searchInput = document.getElementById("search");
    const sortSelect = document.getElementById("sort-product-select");
-
-//    if (searchBtn) {
-//      searchBtn.addEventListener("click", function () {
-//        const query = searchInput ? searchInput.value : "";
-//        searchProducts(query);
-//      });
-//    }
    if (searchInput) {
      searchInput.addEventListener("keypress", function (e) {
        if (e.key === "Enter") {

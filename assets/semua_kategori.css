@@ -545,6 +545,20 @@ textred {
 }
 
 @media (max-width: 768px) {
+
+  .navbar-menu-item-mobile {
+    top: 60px;
+    border-radius: 20px 0px 0px 20px;
+  }
+
+  .header-pages .content {
+  height: 250px;
+}
+
+  .content p {
+    text-align: center;
+  }
+
   .navbar-menu-item,
   .button-region-nav {
     display: none;
@@ -558,7 +572,7 @@ textred {
 
   .navbar-menu-item-mobile {
     position: fixed;
-    top: 49px;
+    top: 60px;
     right: 0;
     padding-top: 30px;
     height: calc(100vh - 70px);
@@ -569,6 +583,7 @@ textred {
     transition: transform 0.3s ease-in-out;
     padding-left: 30px;
     display: flex;
+    border-radius: 20px 0px 0px 20px;
     flex-direction: column;
     gap: 20px;
     z-index: 999;
@@ -732,6 +747,14 @@ textred {
 }
 
 @media (max-width: 480px) {
+
+  .navbar-menu-item-mobile {
+    width: 70%;
+    top: 70px;
+    height: 300px;
+  }
+
+
   .logo {
     width: 120px;
     height: 120px;
